@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital@1&family=Open+Sans:wght@300&family=Questrial&display=swap');
+* {
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+body{
+ text-align: center;
+ justify-content:center;
+ align-items: center;
+ font-family: 'Lato', sans-serif;
+ background-color: #eef7fa;
+}
+nav{
+   display: block;
+   font-family: "lato";
+   background-color: #f1ecec;
+}
+.navLink:hover{
+ background-color: #504949;
+ border-radius:25px;
+ transition: .5s;
+}
+.submit{
+ width: 100%;
+ border-radius: 20px;
+}
+
+.container{
+ width: 400px;
+ background-color: #dddbd4;
+}
+.containers{
+ width: 600px;
+ align-items: center;
+}
+.components{
+ background-color: #e9e6e6;
+}
+.images{
+   margin-top: 60px;
+}
+.how{
+   position: fixed;
+   top: 35px;
+   right: 0;
+}
+.user{
+   position: fixed;
+   top: 30px;
+   right: 5px;
+}
+ 
+
+
+
+
