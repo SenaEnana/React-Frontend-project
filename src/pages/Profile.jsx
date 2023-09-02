@@ -14,20 +14,7 @@ console.log(user);
     <Header/>
   <Container className='container-lg'>
     This is your profile page 
-    
-    {/* window.onload = function () {
-            document.getElementById('first').innerText = localStorage.getItem('name');
-            document.getElementById('second').innerText = localStorage.getItem('email');
-            document.getElementById('third').innerText = localStorage.getItem('phoneNo');
-            document.getElementById('fourth').innerText = localStorage.getItem('address');
-            document.getElementById('five').innerText = localStorage.getItem('password');
-            document.getElementById('six').innerText = localStorage.getItem('passwordC');
-            document.getElementById('seven').innerText = localStorage.getItem('education');
-            document.getElementById('eight').innerText = localStorage.getItem('expert');
-            document.getElementById('nine').innerText = localStorage.getItem('subject');
-            document.getElementById('ten').innerText = localStorage.getItem('time');
 
-        }; */}
   </Container>
 
     </div>
