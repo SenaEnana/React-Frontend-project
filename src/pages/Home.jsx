@@ -3,7 +3,7 @@ import Header from "../components/Header";
 import Image from '../components/Image';
 import Button from "../components/Button";
 import {useHistory } from "react-router-dom/cjs/react-router-dom.min";
-
+//import NewNavbar from '../components/NewNavbar';
 
 const Home = () => {
   let history = useHistory();
@@ -11,16 +11,27 @@ const Home = () => {
   return (
     <div>
        <Header/>
+       {/* <NewNavbar/> */}
        <div className='float-end d-flex mt-4'>
-      <Button title="Sign up" className="btn btn-lg bg-warning fs-5 p-1 m-2 float-end d-flex" onClick={()=> {history.push('/signUp'); }}/>
-     {/* <Button title="Login" className="btn btn-lg bg-info fs-5 p-1 m-1 float-end" onClick={()=> {history.push('/login'); }}/> */}
+        {
+        localStorage.getItem('user-info') ?
+        <>
+    {/* <Button title="Logout" 
+     className="btn btn-lg fs-5 p-1 mt-3 bg-secondary float-end d-flex"/> */}
+        </>
+        :
+        <>
+           <Button title="Sign up" 
+      className="btn btn-lg bg-warning fs-5 p-1 m-2 float-end d-flex" 
+      onClick={()=> {history.push('/signUp'); }}/>
+      <i className='fa fa-hand-o-right fs-4 p-3 float-end d-flex'></i>
+     <Button title="Already have an account?" 
+     className="btn btn-lg fs-5 p-1 m-1 text-info float-end d-flex" 
+     onClick={()=> {history.push('/login'); }}/>
+        </>
+      }
    
-   <i className='fa fa-hand-o-right fs-4 p-3 float-end d-flex'></i>
-   {/* <i className=" fa fa-user fa-2x text-primary"></i>  */}
-     <Button title="Already have an account?" className="btn btn-lg fs-5 p-1 m-1 text-info float-end d-flex" onClick={()=> {history.push('/login'); }}/>
-     {/* <div className="container bg-primary mt-3 rounded">
-      <button className="btn btn-primary w-100" onClick={() =>{history.push('/login')}}>Already have an account?</button>
-      </div> */}
+   
      </div>
        <Image/>
     </div>
@@ -32,7 +43,7 @@ export default Home;
 
 
 
-//This are the codes that are used for the login and signup button
+//This are the codes that are used for the login and signUp button
 // const [showS,setSignUp] = useState(false);
 //   const [show,setShow] = useState(false);
 

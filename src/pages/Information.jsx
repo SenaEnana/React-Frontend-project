@@ -15,11 +15,10 @@ const Information = () => {
                  clicking the sign up button and you
                  have to finish the
                  registration in the additional page.</p>
-                  <p className="fs-4 text-dark fw-light">After that you will get two button if you are teacher
-                 and you want to teach you can click the teach button 
-                 and if you are student or parent or you want to study
-                 or you want to teach your student at home you can click
-                 the study button then after you fill the form and all the registrations
+                  <p className="fs-4 text-dark fw-light">In the additional page you will get the form that has 
+                  some additional information about your need and you have to fill the form correctly and check if there are empty
+                   spaces that are not filled if so then fill them properly.
+                  then after you fill the form and all the registrations
                  are done you will get the message that shows that you 
                  are successfully registered.</p>
                  <p className="fs-4 text-dark fw-light">Finally our website will send You

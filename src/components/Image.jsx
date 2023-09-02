@@ -7,7 +7,7 @@ return(
 <div className='images'>
  
 <Carousel>
-      <Carousel.Item interval={3000}>
+      <Carousel.Item interval={4000}>
         <img
           className="d-flex w-95 rounded"
           src="https://png.pngtree.com/png-vector/20230628/ourmid/pngtree-little-girl-reading-and-studying-illustration-png-image_7333845.png"
@@ -18,7 +18,7 @@ return(
           <p className='text-dark fw-bold'>Better future for yourself and your kids</p>
         </Carousel.Caption>
       </Carousel.Item>
-      <Carousel.Item interval={3000}>
+      <Carousel.Item interval={4000}>
         <img
           className="d-flex w-95 rounded"
           src="https://www.pngall.com/wp-content/uploads/5/Education-Learning-PNG-Image.png"
@@ -32,7 +32,7 @@ return(
 
 {/* Below are the new pictures that i want to add  */}
 
-      <Carousel.Item interval={3000}>
+      <Carousel.Item interval={4000}>
         <img
           className="d-flex w-80 rounded"
           src="https://www.pngitem.com/pimgs/m/157-1576334_transparent-studying-png-open-educational-resources-clip-art.png"
@@ -45,7 +45,7 @@ return(
           </p>
         </Carousel.Caption>
       </Carousel.Item>
-      <Carousel.Item interval={3000}>
+      <Carousel.Item interval={4000}>
         <img
           className="d-flex w-95 rounded"
           src="https://png.pngtree.com/png-vector/20220711/ourmid/pngtree-study-illustration-hand-drawing-png-image_5857918.png"
@@ -58,7 +58,7 @@ return(
           </p>
         </Carousel.Caption>
       </Carousel.Item>
-      <Carousel.Item interval={3000}>
+      <Carousel.Item interval={4000}>
         <img
           className="d-flex w-95 rounded"
           src="https://png.pngtree.com/png-vector/20211026/ourmid/pngtree-mathematic-concept-study-illustration-png-image_4008134.png"
@@ -71,7 +71,7 @@ return(
           </p>
         </Carousel.Caption>
       </Carousel.Item>
-      <Carousel.Item interval={3000}>
+      <Carousel.Item interval={4000}>
         <img
           className="d-flex w-80 rounded"
           src="https://e7.pngegg.com/pngimages/714/987/png-clipart-education-teacher-school-learning-for-learning-text-digital-thumbnail.png"
@@ -84,7 +84,7 @@ return(
           </p>
         </Carousel.Caption>
       </Carousel.Item>
-     <Carousel.Item interval={3000}>
+     <Carousel.Item interval={4000}>
         <img
           className="d-flex w-80 rounded"
           src="https://e7.pngegg.com/pngimages/690/679/png-clipart-student-school-teacher-education-school-supplies-in-books-multicolored-study-equipment-photography-school-bus.png"
@@ -97,7 +97,7 @@ return(
           </p>
         </Carousel.Caption>
       </Carousel.Item> 
-      <Carousel.Item interval={3000}>
+      <Carousel.Item interval={4000}>
         <img
           className="d-flex w-95 rounded"
           src="https://w7.pngwing.com/pngs/275/188/png-transparent-education-school-icon-children-education-infographic-child-text-thumbnail.png"
@@ -110,7 +110,7 @@ return(
           </p>
         </Carousel.Caption>
       </Carousel.Item>
-      <Carousel.Item interval={3000}>
+      <Carousel.Item interval={4000}>
         <img
           className="d-flex w-95 rounded"
           src="https://e7.pngegg.com/pngimages/82/964/png-clipart-globe-with-educational-hat-illustration-distance-education-teacher-school-training-education-icon-miscellaneous-globe-thumbnail.png"
@@ -123,7 +123,7 @@ return(
           </p>
         </Carousel.Caption>
       </Carousel.Item>
-      <Carousel.Item interval={3000}>
+      <Carousel.Item interval={4000}>
         <img
           className="d-flex w-80 rounded"
           src="https://w7.pngwing.com/pngs/567/531/png-transparent-man-writes-on-book-illustration-study-abroad-higher-education-study-skills-study-people-logo-university.png"
@@ -136,7 +136,7 @@ return(
           </p>
         </Carousel.Caption>
       </Carousel.Item>
-      <Carousel.Item interval={3000}>
+      <Carousel.Item interval={4000}>
         <img
           className="d-flex w-80 rounded"
           src="https://www.transparentpng.com/thumb/teacher/AQtsUr-download-teacher-picture-.png"
@@ -149,7 +149,7 @@ return(
           </p>
         </Carousel.Caption>
       </Carousel.Item>
-      <Carousel.Item interval={3000}>
+      <Carousel.Item interval={4000}>
         <img
           className="d-flex w-80 rounded"
           src="https://png.pngtree.com/png-vector/20210722/ourmid/pngtree-ready-for-study-illustration-with-bag-books-thropy-rocket-png-image_3628348.png"

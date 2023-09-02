@@ -44,16 +44,16 @@ nav{
 }
 .how{
    position: fixed;
-   top: 35px;
+   top: 15%;
    right: 0;
 }
 .user{
-   position: fixed;
-   top: 30px;
-   right: 5px;
+   cursor: pointer;
 }
- 
-
-
-
-
+.profile{
+position:absolute;
+right:0;
+top:10px;
+background-color: #e9bf80;
+border-radius: 20px;
+}

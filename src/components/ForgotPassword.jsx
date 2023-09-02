@@ -13,4 +13,3 @@ const ForgotPassword = () => {
 }
 
 export default ForgotPassword
-// onClick={history.push('/reset')}

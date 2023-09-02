@@ -31,8 +31,8 @@ import {useHistory } from "react-router-dom/cjs/react-router-dom.min";
             type="password"
             {...register('password')}
             placeHolder='Enter your password'
-            className = "bg-white p-2 fs-6 text-bold form-control form-control-lg teacher-info"
-             class={`form-control ${errors.password ? 'is-invalid' : ''}`}
+            // className = "bg-white p-2 fs-6 text-bold form-control form-control-lg teacher-info"
+            className={`bg-white p-2 fs-6 text-bold form-control form-control-lg teacher-info ${errors.password ? 'is-invalid' : ''}`}
           />
           <div className="invalid-feedback">{errors.password?.message}</div>
           <label type='password' className='float-start fs-5 text-dark fw-bold'>Confirm Password</label>
@@ -40,9 +40,9 @@ import {useHistory } from "react-router-dom/cjs/react-router-dom.min";
             name="confirmPwd"
             type="password"
             {...register('confirmPwd')}
-            className = "bg-white p-2 fs-6 text-bold form-control form-control-lg teacher-info"
+            //className = ""
             placeHolder='Confirm your password'
-            class={`form-control ${errors.confirmPwd ? 'is-invalid' : ''}`}
+            className={`bg-white p-2 fs-6 text-bold form-control form-control-lg teacher-info  ${errors.confirmPwd ? 'is-invalid' : ''}`}
           />
           <div className="invalid-feedback">{errors.confirmPwd?.message}</div>
         <input type="submit" value="submit" className="btn btn-sm p-1 bg-success fw-bold fs-5 submit" onClick={()=> {history.push('/additional'); }}  /> 
