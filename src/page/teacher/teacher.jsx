@@ -1,29 +1,20 @@
 import { NavLink } from "react-router-dom";
+import {useState,useEffect} from 'react';
 
 const Teacher = () => {
-  const teachers = [
-    {
-      name: "Abebe Beso Bela",
-      gender: "Male",
-      education: "Masters",
-      expert: "Java",
-      date: "02/07/2023..10:00PM"
-    },
-    {
-      name: "Abebe Beso Bela",
-      gender: "Male",
-      education: "Masters",
-      expert: "Java",
-      date: "02/07/2023.10:00PM"
-    },
-    {
-      name: "Abebe Beso Bela",
-      gender: "Male",
-      education: "Masters",
-      expert: "Java",
-      date: "02/07/2023..10:00PM"
-    },
-  ];
+
+  const [data,setData] =useState([]);
+
+ useEffect(() => {
+  const asyncFn = async () => {
+    let result = await fetch("http://127.0.0.1:8000/api/listTeachers");
+    result = await result.json();
+    setData(result)
+   };
+  asyncFn();
+}, []);
+console.log('result', data);
+
   return (
     <>
       <div className="d-flex justify-content-between mt-5">
@@ -39,16 +30,34 @@ const Teacher = () => {
         <table className="table table-hover">
           <thead>
             <tr>
+            <th>Id</th>
               <th>Name</th>
               <th>Gender</th>
               <th>Education</th>
               <th>Expert</th>
               <th>Date</th>
+              <th>Created At</th>
+              <th>Updated At</th>
               <td></td>
             </tr>
           </thead>
+          {
+          data.map((item)=>
+          <tr className="text-light">
+            <td>{item.id}</td>
+              <td>{item.name}</td>
+              <td>{item.gender}</td>
+              <td>{item.education}</td>
+              <td>{item.expert}</td>
+              <td>{item.date}</td>
+              <td>{item.created}</td>
+              <td>{item.updated}</td>
+              <td></td>
+            </tr>
+            )
+            }
           <tbody>
-            {teachers.map((teacher, index) => (
+            {data.map((teacher, index) => (
               <tr key={index}>
                 {Object.values(teacher).map((item) => (
                   <td key={item}>{item}</td>

@@ -32,7 +32,7 @@ let result = await fetch("http://127.0.0.1:8000/api/addition",{
 })
 result = await result.json();
 localStorage.setItem("user-add-info",JSON.stringify(result));
-alert("Congratulation your registration is successfully done");
+alert("Congratulation registration is successful");
 }
 
   return (

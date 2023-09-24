@@ -5,13 +5,6 @@ function Student() {
 
   const [data,setData] =useState([]);
 
-  // useEffect(async ()=>{
-//   let result = await fetch("http://127.0.0.1:8000/api/listStudents");
-//   result = await result.json();
-//   setData(result)
-// },[])
-//  console.log('result', data);
-
  useEffect(() => {
   const asyncFn = async () => {
     let result = await fetch("http://127.0.0.1:8000/api/listStudents");
@@ -21,30 +14,6 @@ function Student() {
   asyncFn();
 }, []);
 console.log('result', data);
-
-  // const students = [
-  //   {
-  //     name: "Abebe Beso Bela",
-  //     gender: "Male",
-  //     garde: "Grade 10",
-  //     subject: "English",
-  //     date: "02/07/2023.10:00PM",
-  //   },
-  //   {
-  //     name: "Abebe Beso Bela",
-  //     gender: "Male",
-  //     grade: "Grade 8",
-  //     subject: "Mathematics",
-  //     date: "02/07/2023.10:00PM",
-  //   },
-  //   {
-  //     name: "Abebe Beso Bela",
-  //     gender: "Male",
-  //     grade: "Grade 11",
-  //     subject: "Geography",
-  //     date: "02/07/2023.10:00PM",
-  //   },
-  // ];
 
   return (
     <>
