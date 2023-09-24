@@ -1,9 +1,9 @@
 import * as Yup from "yup";
 export const signUpValidation = Yup.object().shape({
   name: Yup.string()
-    .min(6, "Too Short! minimum character length must be grater than 6.")
-    .max(50, "Too Long! maximum character length must be grater than 50.")
-    .required("Required"),
+    .min(4, "Too Short! minimum character length must be grater than 6.")
+    .max(15, "Too Long! maximum character length must be grater than 50.")
+    .required("required"),
   email: Yup.string()
     .email("Invalid email! provide valid email?")
     .required("Required"),

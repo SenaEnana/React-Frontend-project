@@ -13,7 +13,7 @@ const TextInput = ({ value, type, name, label, onChange, error }) => {
           onChange={onChange}
         />
       </div>
-      {<p className="text-danger text-start">{error}</p>}
+      {<p className="text-danger text-start m-2">{error}</p>}
     </div>
   );
 };

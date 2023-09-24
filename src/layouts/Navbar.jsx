@@ -46,33 +46,3 @@ const hideShowDiv = (e) => {
   );
 }
 export default Navbar;
-
-
-
-{/* <NavDropdown className="p-1 fs-4 fw-light profile" title="Profile">
-<div className='user bg-dark'>                
-<i className=" fa fa-user fa-2x text-warning p-2 ms-4" 
-onClick={() =>{history.push('/profile');}}></i> 
-
-    <Button title="Logout" 
-     className="btn btn-lg btn-dark fs-5 p-1 ms-4 mt-0"
-     onClick={logOut}/>
- </div>
-</NavDropdown> 
-
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import {Link} from 'react-router-dom';
-import NavDropdown from 'react-bootstrap/NavDropdown';
-import {NavLink} from 'react-bootstrap';
-import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
-import Button from './Button';
-
-
-  let history = useHistory();
-  let user = JSON.parse(localStorage.getItem('user-info'));
-  function logOut(){
-    localStorage.clear();
-    history.push('/');
-
-*/}

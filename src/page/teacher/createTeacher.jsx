@@ -2,16 +2,21 @@ import { Formik, useFormik } from "formik";
 import React from "react";
 import { createTeacherValidation } from "./schema";
 import TextInput from "../../components/TextInput";
+import {NavLink} from "react-router-dom";
 
 const CreateTeacher = () => {
   return (
-
-         <div className="row justify-content-center ">
+   <div className="row justify-content-center ">
+    <div>
+     <NavLink to="/teachers" className="float-end btn btn-primary btn-sm mt-3">show list of teachers</NavLink>
+     </div>
         <Formik
           initialValues={{
+            name: "",
             expert: "",
             gender: "",
-            educationLevel: "",
+            educationLevel: "", 
+            date: ""
           }}
           onSubmit={(values) => {
             console.log(values);
@@ -20,6 +25,14 @@ const CreateTeacher = () => {
         >
           {(formikValues) => (
             <form className="form-group rounded border col-4 pe-3 mt-5 bg-light">
+              <TextInput
+                type="text"
+                name=" name"
+                label=" Name"
+                value={formikValues.values. name}
+                error={formikValues.errors. name}
+                onChange={formikValues.handleChange}
+              />
               <TextInput
                 type="text"
                 name=" expert"
@@ -39,12 +52,19 @@ const CreateTeacher = () => {
               <TextInput
                 type="text"
                 name="educationLevel"
-                label="EducationLevel"
+                label="Education Level"
                 value={formikValues.values.educationLevel}
                 error={formikValues.errors.educationLevel}
                 onChange={formikValues.handleChange}
               />
-
+   <TextInput
+                type="datetime-local"
+                name="date"
+                label="Date"
+                value={formikValues.values.date}
+                error={formikValues.errors.date}
+                onChange={formikValues.handleChange}
+              />
               <div className="m-3">
                 <input
                   className="btn btn-primary col-12"

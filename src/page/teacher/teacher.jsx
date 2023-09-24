@@ -6,19 +6,22 @@ const Teacher = () => {
       name: "Abebe Beso Bela",
       gender: "Male",
       education: "Masters",
-      university: "ASTU",
+      expert: "Java",
+      date: "02/07/2023..10:00PM"
     },
     {
       name: "Abebe Beso Bela",
       gender: "Male",
       education: "Masters",
-      university: "ASTU",
+      expert: "Java",
+      date: "02/07/2023.10:00PM"
     },
     {
       name: "Abebe Beso Bela",
       gender: "Male",
       education: "Masters",
-      university: "ASTU",
+      expert: "Java",
+      date: "02/07/2023..10:00PM"
     },
   ];
   return (
@@ -39,7 +42,8 @@ const Teacher = () => {
               <th>Name</th>
               <th>Gender</th>
               <th>Education</th>
-              <th>University</th>
+              <th>Expert</th>
+              <th>Date</th>
               <td></td>
             </tr>
           </thead>
