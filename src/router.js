@@ -8,7 +8,7 @@ function Router() {
     <Routes>
       <Route path="/home" element={<Home />} />
       <Route path="/teachers" element={<Teacher />} />
-      <Route path="/signOut" element={<SignUp />} />
+      <Route path="/signUp" element={<SignUp />} />
       <Route path="/singIn" element={<SignIn />} />
       {/*    <Route path="/contact" component={Contact} />
             <Route path="/login" component={Login} />

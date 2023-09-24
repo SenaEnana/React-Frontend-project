@@ -36,8 +36,11 @@ function Navbar() {
             <form className="row col-6 justify-content-end" role="search">
               <div className="col-3">
                 <li className="nav-item">
-                  <Link className="nav-link " to={"/signOut"}>
-                    sign out
+                  <Link className="nav-link " to={"/signUp"}>
+                    sign up
+                  </Link>
+                  <Link className="nav-link " to={"/singIn"}>
+                    sign in
                   </Link>
                 </li>
               </div>
