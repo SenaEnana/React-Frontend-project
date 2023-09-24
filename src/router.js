@@ -6,6 +6,7 @@ import SignUp from "./page/auth/signup/signup";
 import SignIn from "./page/auth/signin/signin";
 import CreateTeacher from "./page/teacher/createTeacher";
 import CreateStudent from "./page/student/createStudent";
+import Profile from "./page/profile/profile";
 
 function Router() {
   return (
@@ -17,6 +18,7 @@ function Router() {
       <Route path="/singIn" element={<SignIn />} />
       <Route path="/createStudent" element={<CreateStudent />} />
       <Route path="/createTeacher" element={<CreateTeacher />} />
+      <Route path="/profile" element={<Profile/>} />
     </Routes>
   );
 }
