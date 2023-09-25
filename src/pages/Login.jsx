@@ -2,7 +2,7 @@ import { useState } from "react";
 import CloseLog from "../components/CloseLog";
 import Input from "../components/Input";
 import Label from '../components/Label';
-import ForgotPassword from "../components/ForgotPassword";
+//import ForgotPassword from "../components/ForgotPassword";
 import validator from 'validator'
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
@@ -27,7 +27,13 @@ const Login = () => {
     body:JSON.stringify(item)
   });
   result = await result.json();
-localStorage.setItem("user-info", JSON.stringify(result))
+localStorage.setItem("user-info", JSON.stringify(result));
+
+localStorage.setItem("name",JSON.stringify(result.name));
+localStorage.setItem("email",JSON.stringify(result.email));
+localStorage.setItem("phoneNo",JSON.stringify(result.phoneNo));
+localStorage.setItem("address",JSON.stringify(result.address));
+localStorage.setItem("password",JSON.stringify(result.password));
 }
     const validateEmail = (e) => {
       var emails = e.target.value;
@@ -58,7 +64,7 @@ localStorage.setItem("user-info", JSON.stringify(result))
             value={password} onChange={(e) =>setPassword(e.target.value)}/>
          <Input type="submit" value="login" 
          className="btn btn-sm p-1 bg-info fw-bold fs-5 submit" onClick={login}/>
-         <ForgotPassword/>
+         {/* <ForgotPassword/> */}
     </div>
   )
 }

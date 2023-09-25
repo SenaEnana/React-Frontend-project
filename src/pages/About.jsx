@@ -12,7 +12,7 @@ const About = () => {
             <p className="fs-5 bg-white">Our website is simple and easy,developed by considering some problems that are difficult to our society.
         This website is developed in order to develop web designing skill and it is very useful and have great
         functionality.
-        By using our website you can help yourself and also you will make our product well known.Thank you for using
+        By using our website you can help yourself and also you will make our product well known.Thank you for visiting
         our website!!!</p>
         <Image/>
     </div>

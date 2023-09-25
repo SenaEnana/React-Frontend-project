@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState} from "react";
 import {useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import CloseSig from "../components/CloseSig";
 import Input from "../components/Input";
@@ -47,6 +47,13 @@ const submitValidated =(e) =>{
    })
   result = await result.json();
   localStorage.setItem("user-info",JSON.stringify(result));
+
+  localStorage.setItem("name",JSON.stringify(result.name));
+  localStorage.setItem("email",JSON.stringify(result.email));
+  localStorage.setItem("phoneNo",JSON.stringify(result.phoneNo));
+  localStorage.setItem("address",JSON.stringify(result.address));
+  localStorage.setItem("password",JSON.stringify(result.password));
+
 }
   return (
     <div>

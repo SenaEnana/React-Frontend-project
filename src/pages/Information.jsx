@@ -8,7 +8,7 @@ const Information = () => {
         <div className="mt-4">
         <h3 className="text-dark fw-light mt-4">How it works?</h3>
         <p className="fs-4 text-dark fw-light">
-                 Thank you for using our website!!!
+                 Thank you for visiting our website!!!
                  Our website is simple and easy to use and if
                  you want to use it here is how it works first
                  you have to sign up to have an account by
@@ -22,9 +22,9 @@ const Information = () => {
                  are done you will get the message that shows that you 
                  are successfully registered.</p>
                  <p className="fs-4 text-dark fw-light">Finally our website will send You
-                 email whenever your appropriate time is ready so you can get
-                 what you are looking for in the short period of time so this is how our website work Thank you for 
-                 using our website.  
+                 email whenever your appropriate student or teacher is ready so you can get
+                 what you are looking for in the short period of time so this is how our website work Thank you. 
+                  
         </p>
         </div>
         <div>
