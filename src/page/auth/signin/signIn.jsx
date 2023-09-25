@@ -43,7 +43,7 @@ function SignIn({ setLoggedIn, setAuth }) {
                 <input
                   className="btn btn-primary col-12"
                   type="button"
-                  value="submit"
+                  value="sign in"
                   onClick={formikValues.handleSubmit}
                 />
               </div>

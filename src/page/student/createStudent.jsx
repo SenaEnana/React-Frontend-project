@@ -1,10 +1,11 @@
 import React from 'react'
-import { Formik, useFormik } from "formik";
+import { Formik } from "formik";
 import { createStudentValidation } from "./schema";
 import TextInput from '../../components/TextInput';
 import {NavLink} from 'react-router-dom';
 
 const CreateStudent = () => {
+
   return (
     <div className="row justify-content-center ">
        <div>
@@ -19,12 +20,27 @@ const CreateStudent = () => {
             grade: "",
           }}
           onSubmit={(values) => {
-            console.log(values);
+async function register()
+{
+let result = await fetch("http://127.0.0.1:8000/api/study",{
+ method:"POST",
+ body:JSON.stringify(values),
+ headers:{
+    "Content-Type":"application/json",
+   "Accept":"application/json"
+  }
+})
+result = await result.json();
+localStorage.setItem("user-add-info",JSON.stringify(result));
+alert("registration is successful thank you");
+}
+register();
           }}
           validationSchema={createStudentValidation}
         >
           {(formikValues) => (
             <form className="form-group rounded border col-4 pe-3 mt-5 bg-light">
+            <h4>Create Student</h4>
             <TextInput
                 type="text"
                 name="name"
@@ -82,5 +98,3 @@ const CreateStudent = () => {
 }
 
 export default CreateStudent
-
-

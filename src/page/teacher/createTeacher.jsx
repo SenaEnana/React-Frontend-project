@@ -1,4 +1,4 @@
-import { Formik, useFormik } from "formik";
+import { Formik } from "formik";
 import React from "react";
 import { createTeacherValidation } from "./schema";
 import TextInput from "../../components/TextInput";
@@ -19,26 +19,42 @@ const CreateTeacher = () => {
             date: ""
           }}
           onSubmit={(values) => {
-            console.log(values);
+            //console.log(values);
+            async function register()
+            {
+            let result = await fetch("http://127.0.0.1:8000/api/teach",{
+             method:"POST",
+             body:JSON.stringify(values),
+             headers:{
+                "Content-Type":"application/json",
+               "Accept":"application/json"
+              }
+            })
+            result = await result.json();
+            localStorage.setItem("user-add-info",JSON.stringify(result));
+            alert("registration is successful thank you");
+            }
+            register();
           }}
           validationSchema={createTeacherValidation}
         >
           {(formikValues) => (
-            <form className="form-group rounded border col-4 pe-3 mt-5 bg-light">
+            <form className="form-group rounded border col-4 pe-3 mt-3 bg-light">
+              <h4>Create Teacher</h4>
               <TextInput
                 type="text"
-                name=" name"
-                label=" Name"
-                value={formikValues.values. name}
-                error={formikValues.errors. name}
+                name="name"
+                label="Name"
+                value={formikValues.values.name}
+                error={formikValues.errors.name}
                 onChange={formikValues.handleChange}
               />
               <TextInput
                 type="text"
-                name=" expert"
-                label=" Expert"
-                value={formikValues.values. expert}
-                error={formikValues.errors. expert}
+                name="expert"
+                label="Expert"
+                value={formikValues.values.expert}
+                error={formikValues.errors.expert}
                 onChange={formikValues.handleChange}
               />
               <TextInput
@@ -81,5 +97,4 @@ const CreateTeacher = () => {
   )
 }
 
-export default CreateTeacher
-   
+export default CreateTeacher;

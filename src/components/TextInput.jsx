@@ -1,4 +1,4 @@
-const TextInput = ({ value, type, name, label, onChange, error }) => {
+const TextInput = ({ value, type, name, label, onChange, error}) => {
   return (
     <div className=" col-12 row">
       <div>
@@ -18,5 +18,3 @@ const TextInput = ({ value, type, name, label, onChange, error }) => {
   );
 };
 export default TextInput;
-
-// php artisan config:cache

@@ -6,12 +6,6 @@ function Student() {
   const [data,setData] =useState([]);
 
  useEffect(() => {
-  // const asyncFn = async () => {
-  //   let result = await fetch("http://127.0.0.1:8000/api/listStudents");
-  //   result = await result.json();
-  //   setData(result)
-  //  };
-  // asyncFn();
   getData();
 }, []);
 console.log('result', data);
@@ -61,7 +55,6 @@ async function getData(){
               <td>{item.grade}</td>
               <td>{item.subject}</td>
               <td>{item.date}</td>
-              <td></td>
             </tr>
             )
             }
@@ -72,9 +65,11 @@ async function getData(){
                   <td key={item}>{item}</td>
                 ))} 
                 <td>
-                  <button className="btn btn-outline-info btn-sm" type="button">
+                <NavLink to={"/updateStudent/"+student.id}>
+            <button className="btn btn-outline-info btn-sm" type="button">
                     Edit
                   </button>
+        </NavLink>
                   <button
                   onClick={()=>deleteOperation(student.id)}
                     className="btn btn-outline-danger ms-1 btn-sm"
