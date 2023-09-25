@@ -2,7 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import Teacher from "./page/teacher/teacher";
 import SignUp from "./page/auth/signup/signup";
-import SignIn from "./page/auth/signin/signIn";
+import SignIn from "./page/auth/signin/signin";
 function Router() {
   return (
     <Routes>
