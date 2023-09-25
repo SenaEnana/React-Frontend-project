@@ -1,11 +1,11 @@
-import {Formik,useFormik} from 'formik';
+import { Formik } from "formik";
 import TextInput from "../../../components/TextInput";
-import { signInValidation  } from "./schema";
+import { signInValidation } from "./schema";
 
-function SignIn() {
+function SignIn({ setLoggedIn, setAuth }) {
   return (
     <>
-    <div className="row justify-content-center ">
+      <div className="row justify-content-center ">
         <Formik
           initialValues={{
             email: "",
@@ -13,11 +13,15 @@ function SignIn() {
           }}
           onSubmit={(values) => {
             console.log(values);
+            setAuth(true);
           }}
           validationSchema={signInValidation}
         >
           {(formikValues) => (
             <form className="form-group rounded border col-4 pe-3 mt-5 bg-light">
+              <div className="mt-3">
+                <p className="fs-4">Sign In</p>
+              </div>
               <TextInput
                 type="email"
                 name="email"
@@ -43,6 +47,9 @@ function SignIn() {
                   onClick={formikValues.handleSubmit}
                 />
               </div>
+              <p className="text-start user" onClick={() => setLoggedIn(false)}>
+                did't have an account?
+              </p>
             </form>
           )}
         </Formik>

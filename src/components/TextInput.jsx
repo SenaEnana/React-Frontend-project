@@ -1,17 +1,19 @@
 const TextInput = ({ value, type, name, label, onChange, error }) => {
   return (
-    <div className="m-2 col-12 ">
+    <div className=" col-12 row">
       <div>
         <label className="float-start">{label}</label>
       </div>
-      <input
-        className="form-control"
-        type={type}
-        name={name}
-        value={value}
-        onChange={onChange}
-      />
-      {error && <label className="text-danger float-start">{error}</label>}
+      <div className="form-group">
+        <input
+          className="form-control"
+          type={type}
+          name={name}
+          value={value}
+          onChange={onChange}
+        />
+      </div>
+      {<p className="text-danger text-start">{error}</p>}
     </div>
   );
 };

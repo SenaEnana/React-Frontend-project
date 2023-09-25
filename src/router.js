@@ -12,15 +12,6 @@ function Router() {
       <Route path="/students" element={<Student />} />
       <Route path="/signUp" element={<SignUp />} />
       <Route path="/singIn" element={<SignIn />} />
-      {/*    <Route path="/contact" component={Contact} />
-            <Route path="/login" component={Login} />
-            <Route path="/additional" component={Additional} />
-            <Route path="/reset" component={Reset} />
-            <Route path="/forgotPass" component={ForgotPassword} />
-            <Route path="/information" component={Information} />
-            <Route path="/profile" component={Profile} />
-            <Route path="/studying" component={Student} />
-            <Route path="/teaching" component={Teacher} /> */}
     </Routes>
   );
 }

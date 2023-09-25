@@ -1,9 +1,9 @@
-import { Formik, useFormik } from "formik";
+import { Formik } from "formik";
 import React from "react";
 import TextInput from "../../../components/TextInput";
 import { signUpValidation } from "./schema";
 
-function SignUp() {
+function SignUp({ setLoggedIn }) {
   return (
     <>
       <div className="row justify-content-center ">
@@ -23,6 +23,9 @@ function SignUp() {
         >
           {(formikValues) => (
             <form className="form-group rounded border col-4 pe-3 mt-5 bg-light">
+              <div className="mt-3">
+                <p className="fs-4">Sign Up</p>
+              </div>
               <TextInput
                 type="text"
                 name="name"
@@ -80,6 +83,9 @@ function SignUp() {
                   onClick={formikValues.handleSubmit}
                 />
               </div>
+              <p className="text-start user" onClick={() => setLoggedIn(true)}>
+                Already have an account?
+              </p>
             </form>
           )}
         </Formik>
