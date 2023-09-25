@@ -2,18 +2,33 @@ import { NavLink } from "react-router-dom";
 import {useState,useEffect} from 'react';
 
 const Teacher = () => {
-
   const [data,setData] =useState([]);
 
  useEffect(() => {
-  const asyncFn = async () => {
-    let result = await fetch("http://127.0.0.1:8000/api/listTeachers");
-    result = await result.json();
-    setData(result)
-   };
-  asyncFn();
+  // const asyncFn = async () => {
+  //   let result = await fetch("http://127.0.0.1:8000/api/listTeachers");
+  //   result = await result.json();
+  //   setData(result)
+  //  };
+  // asyncFn();
+  getData();
 }, []);
 console.log('result', data);
+
+async function deleteOperation(id){
+let result = await fetch("http://127.0.0.1:8000/api/deleteTeacher/"+id,{
+ method:"DELETE"
+});
+
+result = await result.json();
+console.log(result);
+getData();
+}
+async function getData(){
+ let result = await fetch("http://127.0.0.1:8000/api/listTeachers");
+ result = await result.json();
+ setData(result)
+}
 
   return (
     <>
@@ -38,7 +53,7 @@ console.log('result', data);
               <th>Date</th>
               <th>Created At</th>
               <th>Updated At</th>
-              <td></td>
+              <th>Operations</th>
             </tr>
           </thead>
           {
@@ -67,6 +82,7 @@ console.log('result', data);
                     Edit
                   </button>
                   <button
+                  onClick={()=>deleteOperation(teacher.id)}
                     className="btn btn-outline-danger ms-1 btn-sm"
                     type="button"
                   >

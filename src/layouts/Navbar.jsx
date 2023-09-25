@@ -37,7 +37,7 @@ const hideShowDiv = (e) => {
              <Link to={"/profile"} className="navbar-brand ms-3 d-block">
           profile
         </Link>
-      <button className="btn btn-primary d-block"> logout</button>
+      <button className="btn btn-primary d-block">sign out</button>
         </div>
           </div>
         </form>

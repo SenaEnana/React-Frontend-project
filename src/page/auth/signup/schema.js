@@ -6,7 +6,7 @@ export const signUpValidation = Yup.object().shape({
     .required("required"),
   email: Yup.string()
     .email("Invalid email! provide valid email?")
-    .required("Required"),
+    .required("required"),
   address: Yup.string().required("required"),
   phone: Yup.number().required("required"),
   password: Yup.string().required("required"),

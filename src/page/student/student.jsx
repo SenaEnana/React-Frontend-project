@@ -6,15 +6,30 @@ function Student() {
   const [data,setData] =useState([]);
 
  useEffect(() => {
-  const asyncFn = async () => {
-    let result = await fetch("http://127.0.0.1:8000/api/listStudents");
-    result = await result.json();
-    setData(result)
-   };
-  asyncFn();
+  // const asyncFn = async () => {
+  //   let result = await fetch("http://127.0.0.1:8000/api/listStudents");
+  //   result = await result.json();
+  //   setData(result)
+  //  };
+  // asyncFn();
+  getData();
 }, []);
 console.log('result', data);
 
+ async function deleteOperation(id){
+let result = await fetch("http://127.0.0.1:8000/api/deleteStudent/"+id,{
+  method:"DELETE"
+});
+result = await result.json();
+console.log(result);
+getData();
+}
+
+async function getData(){
+  let result = await fetch("http://127.0.0.1:8000/api/listStudents");
+  result = await result.json();
+  setData(result)
+}
   return (
     <>
          <div className="d-flex justify-content-between mt-5">
@@ -27,8 +42,7 @@ console.log('result', data);
         </NavLink>
       </div>
       <div className="rounded-2 border">
-        <table className="table table-hover">
-          <thead>
+        <table className="table table-hover">     
             <tr>
             <th>Id</th>
               <th>Name</th>
@@ -36,9 +50,8 @@ console.log('result', data);
               <th>grade</th>
               <th>Subject</th>
               <th>Date</th>
-              <td></td>
-            </tr>
-          </thead>
+              <th>Operations</th>
+            </tr>       
           {
           data.map((item)=>
           <tr className="text-light">
@@ -63,12 +76,13 @@ console.log('result', data);
                     Edit
                   </button>
                   <button
+                  onClick={()=>deleteOperation(student.id)}
                     className="btn btn-outline-danger ms-1 btn-sm"
                     type="button"
                   >
                     Remove
                   </button>
-                </td>
+                </td> 
               </tr>
              ))}
           </tbody> 
