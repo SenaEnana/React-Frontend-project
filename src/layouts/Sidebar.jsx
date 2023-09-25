@@ -17,7 +17,7 @@ function Sidebar() {
             Teachers
           </NavLink>
           <NavLink
-            to={"/createTeachers"}
+            to={"/createTeacher"}
             className="list-group-item text-start"
           >
             <MdCreateNewFolder className="me-2" size={30} />
@@ -28,7 +28,7 @@ function Sidebar() {
             Students
           </NavLink>
           <NavLink
-            to={"/createStudents"}
+            to={"/createStudent"}
             className="list-group-item text-start"
           >
             <MdCreateNewFolder className="me-2" size={30} />
