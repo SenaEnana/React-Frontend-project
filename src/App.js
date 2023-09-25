@@ -1,23 +1,19 @@
-// import About from "./pages/About";
-// import Contact from "./pages/Contact";
-// import Additional from "./pages/Additional";
-// import Login from "./pages/Login";
-// import SignUp from "./pages/SignUp";
-// import Reset from "./components/Reset";
-// import ForgotPassword from "./components/ForgotPassword";
-// import Information from "./pages/Information";
-// import Profile from "./pages/Profile";
-// import Student from "./pages/Student";
-// import Teacher from "./pages/Teacher";
-import Navbar from "./components/Navbar";
-
+import Navbar from "./layouts/Navbar";
+import Sidebar from "./layouts/Sidebar";
 import Router from "./router";
 
 function App() {
   return (
-    <div>
+    <div className="col-12 overflow-none bg-white">
       <Navbar />
-      <Router />
+      <div className="row col-12">
+        <div className="col-2">
+          <Sidebar />
+        </div>
+        <div className="col-10 ">
+          <Router />
+        </div>
+      </div>
     </div>
   );
 }
