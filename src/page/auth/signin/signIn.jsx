@@ -3,6 +3,18 @@ import TextInput from "../../../components/TextInput";
 import { signInValidation } from "./schema";
 
 function SignIn({ setLoggedIn, setAuth }) {
+  async function login(values) {
+    let result = await fetch("http://127.0.0.1:8000/api/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify(values),
+    });
+    result = await result.json();
+    localStorage.setItem("user-info", JSON.stringify(result));
+  }
   return (
     <>
       <div className="row justify-content-center ">
@@ -13,6 +25,7 @@ function SignIn({ setLoggedIn, setAuth }) {
           }}
           onSubmit={(values) => {
             console.log(values);
+            login(values);
             setAuth(true);
           }}
           validationSchema={signInValidation}

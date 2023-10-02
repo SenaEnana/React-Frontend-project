@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "../components/Image";
-import Button from "../components/Button";
+// import Button from "../components/Button";
 // import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 const Home = () => {
@@ -8,7 +8,7 @@ const Home = () => {
   return (
     <div>
       <div className="float-end d-flex mt-4">
-        {localStorage.getItem("user-info") ? (
+        {/* {localStorage.getItem("user-info") ? (
           <></>
         ) : (
           <>
@@ -28,7 +28,7 @@ const Home = () => {
               }}
             />
           </>
-        )}
+        )} */}
       </div>
       <Image />
     </div>

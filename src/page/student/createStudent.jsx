@@ -5,6 +5,19 @@ import TextInput from "../../components/TextInput";
 import { NavLink } from "react-router-dom";
 
 const CreateStudent = () => {
+  async function studentRegistration(values) {
+    let result = await fetch("http://127.0.0.1:8000/api/createStudent", {
+      method: "POST",
+      body: JSON.stringify(values),
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    });
+    result = await result.json();
+    localStorage.setItem("user-add-info", JSON.stringify(result));
+    alert("successfully registered");
+  }
   return (
     <div className="row justify-content-center ">
       <div>
@@ -24,23 +37,7 @@ const CreateStudent = () => {
           grade: "",
         }}
         onSubmit={(values) => {
-          async function register() {
-            let result = await fetch(
-              "http://127.0.0.1:8000/api/createStudent",
-              {
-                method: "POST",
-                body: JSON.stringify(values),
-                headers: {
-                  "Content-Type": "application/json",
-                  Accept: "application/json",
-                },
-              }
-            );
-            result = await result.json();
-            localStorage.setItem("user-add-info", JSON.stringify(result));
-            alert("your information is successfully submitted");
-          }
-          register();
+          studentRegistration(values);
         }}
         validationSchema={createStudentValidation}
       >

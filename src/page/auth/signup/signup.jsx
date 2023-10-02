@@ -14,8 +14,7 @@ function SignUp({ setLoggedIn }) {
     });
     result = await result.json();
     localStorage.setItem("user-info", JSON.stringify(result));
-    alert(" submitted");
-    console.log("ok its done");
+    alert("user created");
   }
   return (
     <>
@@ -24,8 +23,9 @@ function SignUp({ setLoggedIn }) {
           initialValues={{
             name: "",
             email: "",
-            phone: "",
+            phoneNo: "",
             address: "",
+            role: "",
             password: "",
             confirmPassword: "",
           }}
@@ -56,7 +56,7 @@ function SignUp({ setLoggedIn }) {
                 onChange={formikValues.handleChange}
               />
               <TextInput
-                type="address"
+                type="text"
                 name="address"
                 label="Address"
                 value={formikValues.values.address}
@@ -64,11 +64,19 @@ function SignUp({ setLoggedIn }) {
                 onChange={formikValues.handleChange}
               />
               <TextInput
-                type="phone"
-                name="phone"
+                type="number"
+                name="phoneNo"
                 label="Phone"
-                value={formikValues.values.phone}
-                error={formikValues.errors.phone}
+                value={formikValues.values.phoneNo}
+                error={formikValues.errors.phoneNo}
+                onChange={formikValues.handleChange}
+              />
+              <TextInput
+                type="text"
+                name="role"
+                label="Role"
+                value={formikValues.values.role}
+                error={formikValues.errors.role}
                 onChange={formikValues.handleChange}
               />
               <TextInput
