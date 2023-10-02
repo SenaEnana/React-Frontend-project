@@ -13,11 +13,12 @@ function SignIn({ setLoggedIn, setAuth }) {
       body: JSON.stringify(values),
     });
     result = await result.json();
-    localStorage.setItem("user-info", JSON.stringify(result));
+    localStorage.setItem("user-login", JSON.stringify(result));
+    alert("logged in");
   }
   return (
     <>
-      <div className="row justify-content-center ">
+      <div className="row justify-content-center">
         <Formik
           initialValues={{
             email: "",

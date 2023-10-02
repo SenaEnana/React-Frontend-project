@@ -1,8 +1,8 @@
 import { useState } from "react";
-import Navbar from "./layouts/Navbar";
 import Sidebar from "./layouts/Sidebar";
 import Router from "./router";
 import Auth from "./page/auth/auth";
+import NavBar from "./layouts/Navbar";
 
 function App() {
   const [isAuth, setAuth] = useState(false);
@@ -10,7 +10,7 @@ function App() {
     <>
       {isAuth ? (
         <div className="col-12 overflow-none bg-white">
-          <Navbar />
+        <NavBar/>
           <div className="row col-12">
             <div className="col-2">
               <Sidebar />

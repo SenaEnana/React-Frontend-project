@@ -1,8 +1,11 @@
 import { Formik } from "formik";
 import TextInput from "../../../components/TextInput";
 import { signUpValidation } from "./schema";
+import { useNavigate } from "react-router-dom";
 
 function SignUp({ setLoggedIn }) {
+  const navigate = useNavigate();
+
   async function userRegistration(values) {
     let result = await fetch("http://127.0.0.1:8000/api/registration", {
       method: "POST",
@@ -15,6 +18,7 @@ function SignUp({ setLoggedIn }) {
     result = await result.json();
     localStorage.setItem("user-info", JSON.stringify(result));
     alert("user created");
+    navigate("/");
   }
   return (
     <>
@@ -25,7 +29,6 @@ function SignUp({ setLoggedIn }) {
             email: "",
             phoneNo: "",
             address: "",
-            role: "",
             password: "",
             confirmPassword: "",
           }}
@@ -69,14 +72,6 @@ function SignUp({ setLoggedIn }) {
                 label="Phone"
                 value={formikValues.values.phoneNo}
                 error={formikValues.errors.phoneNo}
-                onChange={formikValues.handleChange}
-              />
-              <TextInput
-                type="text"
-                name="role"
-                label="Role"
-                value={formikValues.values.role}
-                error={formikValues.errors.role}
                 onChange={formikValues.handleChange}
               />
               <TextInput

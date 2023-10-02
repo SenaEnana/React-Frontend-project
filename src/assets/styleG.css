@@ -47,14 +47,13 @@ nav{
    top: 15%;
    right: 0;
 }
-.user{
-   cursor: pointer;
-}
 .profile{
 position:absolute;
-right:0;
-top:10px;
-background-color: #e9bf80;
-border-radius: 20px;
+right:10px;
+top:5px;
 }
-
+.user-icon{
+   position:absolute;
+   right:9px;
+   top:15px; 
+}
