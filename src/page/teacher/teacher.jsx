@@ -1,28 +1,26 @@
 import { NavLink } from "react-router-dom";
-import {useState,useEffect} from 'react';
+import { useState, useEffect } from "react";
 
 const Teacher = () => {
-  const [data,setData] =useState([]);
+  const [data, setData] = useState([]);
 
- useEffect(() => {
-  getData();
-}, []);
-console.log('result', data);
+  useEffect(() => {
+    getData();
+  }, []);
 
-async function deleteOperation(id){
-let result = await fetch("http://127.0.0.1:8000/api/deleteTeacher/"+id,{
- method:"DELETE"
-});
+  async function deleteOperation(id) {
+    let result = await fetch("http://127.0.0.1:8000/api/deleteTeacher/" + id, {
+      method: "DELETE",
+    });
 
-result = await result.json();
-console.log(result);
-getData();
-}
-async function getData(){
- let result = await fetch("http://127.0.0.1:8000/api/listTeachers");
- result = await result.json();
- setData(result)
-}
+    result = await result.json();
+    getData();
+  }
+  async function getData() {
+    let result = await fetch("http://127.0.0.1:8000/api/listTeachers");
+    result = await result.json();
+    setData(result);
+  }
 
   return (
     <>
@@ -39,47 +37,33 @@ async function getData(){
         <table className="table table-hover">
           <thead>
             <tr>
-            <th>Id</th>
+              <th>Id</th>
               <th>Name</th>
               <th>Gender</th>
               <th>Education</th>
               <th>Expert</th>
               <th>Date</th>
-              <th>Created At</th>
-              <th>Updated At</th>
-              <th>Operations</th>
-            </tr>
-          </thead>
-          {
-          data.map((item)=>
-          <tr className="text-light">
-            <td>{item.id}</td>
-              <td>{item.name}</td>
-              <td>{item.gender}</td>
-              <td>{item.education}</td>
-              <td>{item.expert}</td>
-              <td>{item.date}</td>
-              <td>{item.created}</td>
-              <td>{item.updated}</td>
               <td></td>
             </tr>
-            )
-            }
+          </thead>
           <tbody>
-            {data.map((teacher, index) => (
-              <tr key={index}>
-                {Object.values(teacher).map((item) => (
-                  <td key={item}>{item}</td>
+            {data.map((teacher) => (
+              <tr key={teacher.id}>
+                {Object.values(teacher).map((item, index) => (
+                  <td key={index}>{item}</td>
                 ))}
                 <td>
-                <NavLink to={"/updateTeacher/"+teacher.id}>
-            <button className="btn btn-outline-info btn-sm" type="button">
-                    Edit
-                  </button>
-        </NavLink>
-              
+                  <NavLink to={"/updateTeacher/" + teacher.id}>
+                    <button
+                      className="btn btn-outline-info btn-sm"
+                      type="button"
+                    >
+                      Edit
+                    </button>
+                  </NavLink>
+
                   <button
-                  onClick={()=>deleteOperation(teacher.id)}
+                    onClick={() => deleteOperation(teacher.id)}
                     className="btn btn-outline-danger ms-1 btn-sm"
                     type="button"
                   >

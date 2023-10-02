@@ -1,84 +1,114 @@
-import { useParams} from "react-router-dom";
-import { useEffect,useState } from 'react';
+import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
 
-import React from 'react'
-import TextInput from '../../components/TextInput';
+import { Formik } from "formik";
+import React from "react";
+import TextInput from "../../components/TextInput";
+import { createTeacherValidation } from "./schema";
 
-function UpdateTeacher(){
+function UpdateTeacher() {
+  let { id } = useParams();
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(false);
 
-    let { id } = useParams();
-const [data,setData] =useState([]);
-
-useEffect(() => {
-      const asyncFn = async () => {
-    let result = await fetch("http://127.0.0.1:8000/api/getTeacher/"+id);
+  async function updateTeacher(values) {
+    setLoading(true);
+    let result = await fetch("http://127.0.0.1:8000/api/updateTeacher/" + id, {
+      method: "PUT",
+      body: JSON.stringify(values),
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    });
     result = await result.json();
-    setData(result)
-   };
-  asyncFn();
-  }, []);
-
-  function updateTeacher(){
-    // const newData = {
-    //     name: data.name,
-    //     expert: data.expert,
-    //     gender: data.gender,
-    //     educationLevel: data.educationLevel,
-    //     date: data.date
-    // }
-    const asyncFn = async () => {
-        let result = await fetch("http://127.0.0.1:8000/api/updateTeacher"+id);
-        result = await result.json();
-        setData(result)
-       };
-       asyncFn();
+    setLoading(false);
+    alert("successfully updated");
   }
-    return(
-        <div className="row justify-content-center ">
-        <form onSubmit={updateTeacher} className="form-group rounded border col-4 pe-3 mt-5 bg-light">
-   <h4>Update Teacher</h4>
-                <TextInput
-                    type="text"
-                    name="name"
-                    label="Name"
-                    value={data.name}
-                  />
-                <TextInput
-                    type="text"
-                    name="expert"
-                    label="Expert"
-                    value={data.expert}
-                  />
-                       <TextInput
-                    type="text"
-                    name="gender"
-                    label="Gender"
-                    value={data.gender}
-                  />
 
-                  <TextInput
-                    type="text"
-                    name="educationLevel"
-                    label="EducationLevel"
-                    value={data.educationLevel}
-                  />
-                  <TextInput
-                    type="datetime-local"
-                    name="date"
-                    label="Date"
-                    value={data.date}
-                  />
-               
-                  <div className="m-3">
-                    <input
-                      className="btn btn-success col-12"
-                      type="button"
-                      value="edit teacher"
-                    />
-                  </div>
-                </form>
-                </div>
-    )
+  useEffect(() => {
+    const asyncFn = async () => {
+      let result = await fetch("http://127.0.0.1:8000/api/getTeacher/" + id);
+      result = await result.json();
+      setData(result);
+    };
+    asyncFn();
+  }, [id]);
+  return (
+    <div className="row justify-content-center ">
+      {data.name && !loading && (
+        <Formik
+          initialValues={{
+            name: data.name,
+            expert: data.expert,
+            gender: data.gender,
+            educationLevel: data.educationLevel,
+            date: data.date,
+          }}
+          onSubmit={(values) => {
+            updateTeacher(values);
+          }}
+          validationSchema={createTeacherValidation}
+        >
+          {(formikValues) => (
+            <form className="form-group rounded border col-4 pe-3 mt-5 bg-light">
+              <h4>Update Teacher</h4>
+              <TextInput
+                type="text"
+                name="name"
+                label="Name"
+                value={formikValues.values.name}
+                error={formikValues.errors.name}
+                onChange={formikValues.handleChange}
+              />
+              <TextInput
+                type="text"
+                name="expert"
+                label="Expert"
+                value={formikValues.values.expert}
+                error={formikValues.errors.expert}
+                onChange={formikValues.handleChange}
+              />
+              <TextInput
+                type="text"
+                name="gender"
+                label="Gender"
+                value={formikValues.values.gender}
+                error={formikValues.errors.gender}
+                onChange={formikValues.handleChange}
+              />
+
+              <TextInput
+                type="text"
+                name="educationLevel"
+                label="EducationLevel"
+                value={formikValues.values.educationLevel}
+                error={formikValues.errors.educationLevel}
+                onChange={formikValues.handleChange}
+              />
+              <TextInput
+                type="datetime-local"
+                name="date"
+                label="Date"
+                value={formikValues.values.date}
+                error={formikValues.errors.date}
+                onChange={formikValues.handleChange}
+              />
+
+              <div className="m-3">
+                <input
+                  className="btn btn-success col-12"
+                  type="button"
+                  value="edit teacher"
+                  onClick={formikValues.handleSubmit}
+                />
+              </div>
+            </form>
+          )}
+        </Formik>
+      )}
+    </div>
+  );
 }
 
 export default UpdateTeacher;

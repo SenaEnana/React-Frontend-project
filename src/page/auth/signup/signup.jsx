@@ -1,10 +1,22 @@
 import { Formik } from "formik";
 import TextInput from "../../../components/TextInput";
 import { signUpValidation } from "./schema";
-import { useNavigate } from "react-router-dom";
 
 function SignUp({ setLoggedIn }) {
-  const navigate = useNavigate();
+  async function userRegistration(values) {
+    let result = await fetch("http://127.0.0.1:8000/api/registration", {
+      method: "POST",
+      body: JSON.stringify(values),
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    });
+    result = await result.json();
+    localStorage.setItem("user-info", JSON.stringify(result));
+    alert(" submitted");
+    console.log("ok its done");
+  }
   return (
     <>
       <div className="row justify-content-center ">
@@ -17,35 +29,9 @@ function SignUp({ setLoggedIn }) {
             password: "",
             confirmPassword: "",
           }}
-          // value={name} onChange={(e) => setName(e.target.value)}/>
-          onSubmit={
-            (values) => {
-            console.log(values);
-          }
-      //     async function register(values)
-      //     {
-      //       navigate("/home");
-      //    //let item={name,email,phoneNo,address,password};
-      //     let result = await fetch("http://127.0.0.1:8000/api/register",{
-      //      method:"POST",
-      //      body:JSON.stringify(values),
-      //      headers:{
-      //         "Content-Type":"application/json",
-      //        "Accept":"application/json"
-      //       }
-      //     })
-      //    result = await result.json();
-      //    localStorage.setItem("user-info",JSON.stringify(result));
-      //    console.log(values);
-         
-      //    localStorage.setItem("name",JSON.stringify(result.name));
-      //    localStorage.setItem("email",JSON.stringify(result.email));
-      //    localStorage.setItem("phoneNo",JSON.stringify(result.phoneNo));
-      //    localStorage.setItem("address",JSON.stringify(result.address));
-      //    localStorage.setItem("password",JSON.stringify(result.password));
-       
-      //  }
-        }
+          onSubmit={(values) => {
+            userRegistration(values);
+          }}
           validationSchema={signUpValidation}
         >
           {(formikValues) => (

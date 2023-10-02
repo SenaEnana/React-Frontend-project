@@ -1,20 +1,19 @@
 import { BiSolidUser } from "react-icons/bi";
 import { Link } from "react-router-dom";
-import {useState,useEffect} from "react";
+import { useState, useEffect } from "react";
 
 function Navbar() {
-
-const [isActive, setIsActive] = useState({
-  id: 'divOne',
-})
-useEffect(() => {
-  console.log(isActive)
-}, [isActive])
-const hideShowDiv = (e) => {
-  setIsActive({
-    id: e.target.id,
-  })
-}
+  const [isActive, setIsActive] = useState({
+    id: "divOne",
+  });
+  useEffect(() => {
+    console.log(isActive);
+  }, [isActive]);
+  const hideShowDiv = (e) => {
+    setIsActive({
+      id: e.target.id,
+    });
+  };
   return (
     <nav className="navbar bg-light border col-12 overflow-none">
       <div className="container-fluid">
@@ -23,22 +22,31 @@ const hideShowDiv = (e) => {
         </Link>
         <form className="d-flex" role="search">
           <div>
-            <BiSolidUser
-            id="user-info"
-              className="bg-white p-1 rounded-5 border user"
-              size={45}
-              onClick={(e) => {
-                hideShowDiv(e)
-              }} />
+            <div className="dropdown show">
+              <a
+                className="dropdown-toggle"
+                href="#"
+                role="button"
+                id="dropdownMenuLink"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                <BiSolidUser />
+              </a>
 
-        <div
-          className={isActive.id === 'user-info' ? `user-info` : 'user-div d-none'}
-        >
-             <Link to={"/profile"} className="navbar-brand ms-3 d-block">
-          profile
-        </Link>
-      <button className="btn btn-primary d-block">sign out</button>
-        </div>
+              <div className="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <a className="dropdown-item" href="#">
+                  Action
+                </a>
+                <a className="dropdown-item" href="#">
+                  Another action
+                </a>
+                <a className="dropdown-item" href="#">
+                  Something else here
+                </a>
+              </div>
+            </div>
           </div>
         </form>
       </div>
