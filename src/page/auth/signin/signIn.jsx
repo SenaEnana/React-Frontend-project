@@ -13,8 +13,9 @@ function SignIn({ setLoggedIn, setAuth }) {
       body: JSON.stringify(values),
     });
     result = await result.json();
-    localStorage.setItem("user-login", JSON.stringify(result));
-    alert("logged in");
+    localStorage.setItem("user-login", "true");
+    window.location.href = "";
+    setAuth(true);
   }
   return (
     <>
@@ -25,9 +26,7 @@ function SignIn({ setLoggedIn, setAuth }) {
             password: "",
           }}
           onSubmit={(values) => {
-            console.log(values);
             login(values);
-            setAuth(true);
           }}
           validationSchema={signInValidation}
         >
@@ -40,6 +39,7 @@ function SignIn({ setLoggedIn, setAuth }) {
                 type="email"
                 name="email"
                 label="Email"
+                placeholder="enter your email"
                 value={formikValues.values.email}
                 error={formikValues.errors.email}
                 onChange={formikValues.handleChange}
@@ -48,6 +48,7 @@ function SignIn({ setLoggedIn, setAuth }) {
                 type="password"
                 name="password"
                 label="Password"
+                placeholder="enter your password"
                 value={formikValues.values.password}
                 error={formikValues.errors.password}
                 onChange={formikValues.handleChange}

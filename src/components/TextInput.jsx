@@ -1,4 +1,12 @@
-const TextInput = ({ value, type, name, label, onChange, error}) => {
+const TextInput = ({
+  value,
+  type,
+  name,
+  label,
+  onChange,
+  error,
+  placeholder,
+}) => {
   return (
     <div className=" col-12 row">
       <div>
@@ -7,6 +15,7 @@ const TextInput = ({ value, type, name, label, onChange, error}) => {
       <div className="form-group">
         <input
           className="form-control"
+          placeholder={placeholder}
           type={type}
           name={name}
           value={value}

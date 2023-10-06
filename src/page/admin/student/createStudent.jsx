@@ -1,10 +1,16 @@
 import React from "react";
 import { Formik } from "formik";
 import { createStudentValidation } from "./schema";
-import TextInput from "../../components/TextInput";
+import TextInput from "../../../components/TextInput";
 import { NavLink } from "react-router-dom";
+import DropDown from "../../../components/DropDown";
+import { useState } from "react";
 
 const CreateStudent = () => {
+  const [gender, setGender] = useState([
+    { values: "female", label: "Female" },
+    { values: "male", label: "Male" },
+  ]);
   async function studentRegistration(values) {
     let result = await fetch("http://127.0.0.1:8000/api/createStudent", {
       method: "POST",
@@ -31,6 +37,8 @@ const CreateStudent = () => {
       <Formik
         initialValues={{
           name: "",
+          phoneNo: "",
+          address: "",
           gender: "",
           subject: "",
           date: "",
@@ -48,22 +56,40 @@ const CreateStudent = () => {
               type="text"
               name="name"
               label="Name"
+              placeholder="enter your name"
               value={formikValues.values.name}
               error={formikValues.errors.name}
               onChange={formikValues.handleChange}
             />
             <TextInput
-              type="text"
-              name="gender"
-              label="Gender"
-              value={formikValues.values.gender}
-              error={formikValues.errors.gender}
+              type="number"
+              name="phoneNo"
+              label="Phone Number"
+              placeholder="enter your phone number"
+              value={formikValues.values.phoneNo}
+              error={formikValues.errors.phoneNo}
               onChange={formikValues.handleChange}
             />
             <TextInput
-              type="grade"
+              type="text"
+              name="address"
+              label="Address"
+              placeholder="enter your address"
+              value={formikValues.values.address}
+              error={formikValues.errors.address}
+              onChange={formikValues.handleChange}
+            />
+            <DropDown
+              onChange={formikValues.handleChange}
+              label="Gender"
+              name="gender"
+              options={gender}
+            />
+            <TextInput
+              type="number"
               name="grade"
               label="Grade"
+              placeholder="enter your grade"
               value={formikValues.values.grade}
               error={formikValues.errors.grade}
               onChange={formikValues.handleChange}
@@ -72,6 +98,7 @@ const CreateStudent = () => {
               type="text"
               name="subject"
               label="Subject"
+              placeholder="enter the subject to study"
               value={formikValues.values.subject}
               error={formikValues.errors.subject}
               onChange={formikValues.handleChange}
@@ -80,6 +107,7 @@ const CreateStudent = () => {
               type="datetime-local"
               name="date"
               label="Date"
+              placeholder="enter date and time"
               value={formikValues.values.date}
               error={formikValues.errors.date}
               onChange={formikValues.handleChange}

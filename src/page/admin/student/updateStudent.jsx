@@ -3,8 +3,7 @@ import { useEffect, useState } from "react";
 
 import { Formik } from "formik";
 import { createStudentValidation } from "./schema";
-import React from "react";
-import TextInput from "../../components/TextInput";
+import TextInput from "../../../components/TextInput";
 
 function UpdateStudent() {
   let { id } = useParams();
@@ -40,6 +39,8 @@ function UpdateStudent() {
         <Formik
           initialValues={{
             name: data.name,
+            phoneNo: data.phoneNo,
+            address: data.address,
             gender: data.gender,
             subject: data.subject,
             grade: data.grade,
@@ -62,6 +63,22 @@ function UpdateStudent() {
                 onChange={formikValues.handleChange}
               />
               <TextInput
+                type="number"
+                name="phoneNo"
+                label="Phone Number"
+                value={formikValues.values.phoneNo}
+                error={formikValues.errors.phoneNo}
+                onChange={formikValues.handleChange}
+              />
+              <TextInput
+                type="text"
+                name="address"
+                label="Address"
+                value={formikValues.values.address}
+                error={formikValues.errors.address}
+                onChange={formikValues.handleChange}
+              />
+              <TextInput
                 type="text"
                 name="gender"
                 label="Gender"
@@ -70,7 +87,7 @@ function UpdateStudent() {
                 onChange={formikValues.handleChange}
               />
               <TextInput
-                type="grade"
+                type="number"
                 name="grade"
                 label="Grade"
                 value={formikValues.values.grade}

@@ -7,7 +7,7 @@ function NavBar() {
   let user = JSON.parse(localStorage.getItem("user-info"));
   function logOut() {
     localStorage.removeItem("user-login");
-    navigate("/");
+    window.location.href = "";
   }
   return (
     <div>

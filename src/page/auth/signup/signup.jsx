@@ -1,24 +1,33 @@
 import { Formik } from "formik";
 import TextInput from "../../../components/TextInput";
 import { signUpValidation } from "./schema";
-import { useNavigate } from "react-router-dom";
+import DropDown from "../../../components/DropDown";
+import { useState } from "react";
 
 function SignUp({ setLoggedIn }) {
-  const navigate = useNavigate();
-
-  async function userRegistration(values) {
-    let result = await fetch("http://127.0.0.1:8000/api/registration", {
-      method: "POST",
-      body: JSON.stringify(values),
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-    });
-    result = await result.json();
-    localStorage.setItem("user-info", JSON.stringify(result));
-    alert("user created");
-    navigate("/");
+  const [roles, setRoles] = useState([
+    { values: "admin", label: "Admin" },
+    { values: "student", label: "Student" },
+    { values: "teacher", label: "Teacher" },
+  ]);
+  // async function userRegistration(values) {
+  function userRegistration(values) {
+    const formData = new FormData();
+    formData.append("name", values.name);
+    formData.append("email", values.email);
+    formData.append("file", values.file);
+    formData.append("role", values.role);
+    formData.append("password", values.password);
+    formData.append("confirmPassword", values.confirmPassword);
+    console.log(values);
+    // let result = await fetch("http://127.0.0.1:8000/api/registration", {
+    //   method: "POST",
+    //   // headers: { "Content-Type": "multipart/form-data" },
+    //   body: formData,
+    // });
+    console.log("ok");
+    //localStorage.setItem("user-info", JSON.stringify(result));
+    // window.location.href = "";
   }
   return (
     <>
@@ -27,15 +36,15 @@ function SignUp({ setLoggedIn }) {
           initialValues={{
             name: "",
             email: "",
-            phoneNo: "",
-            address: "",
+            role: "",
+            file: {},
             password: "",
             confirmPassword: "",
           }}
           onSubmit={(values) => {
             userRegistration(values);
           }}
-          validationSchema={signUpValidation}
+          // validationSchema={signUpValidation}
         >
           {(formikValues) => (
             <form className="form-group rounded border col-4 pe-3 mt-5 bg-light">
@@ -46,6 +55,7 @@ function SignUp({ setLoggedIn }) {
                 type="text"
                 name="name"
                 label="Name"
+                placeholder="enter your name"
                 value={formikValues.values.name}
                 error={formikValues.errors.name}
                 onChange={formikValues.handleChange}
@@ -54,30 +64,44 @@ function SignUp({ setLoggedIn }) {
                 type="email"
                 name="email"
                 label="Email"
+                placeholder="enter your email"
                 value={formikValues.values.email}
                 error={formikValues.errors.email}
                 onChange={formikValues.handleChange}
               />
-              <TextInput
-                type="text"
-                name="address"
-                label="Address"
-                value={formikValues.values.address}
-                error={formikValues.errors.address}
+              <DropDown
+                label="Role"
+                name="role"
+                options={roles}
+                value={formikValues.values.role}
+                error={formikValues.errors.role}
                 onChange={formikValues.handleChange}
               />
-              <TextInput
-                type="number"
-                name="phoneNo"
-                label="Phone"
-                value={formikValues.values.phoneNo}
-                error={formikValues.errors.phoneNo}
+              {/* <TextInput
+                type="file"
+                name="file_path"
+                label="Image"
+                placeholder="select file for your image"
+                value={formikValues.values.files[0]}
+                error={formikValues.errors.file_path}
                 onChange={formikValues.handleChange}
+              /> */}
+              <input
+                id="file"
+                name="file"
+                type="file"
+                onChange={(event) =>
+                  formikValues.setFieldValue(
+                    "file",
+                    event.currentTarget.files[0]
+                  )
+                }
               />
               <TextInput
                 type="password"
                 name="password"
                 label="Password"
+                placeholder="enter your password"
                 value={formikValues.values.password}
                 error={formikValues.errors.password}
                 onChange={formikValues.handleChange}
@@ -86,6 +110,7 @@ function SignUp({ setLoggedIn }) {
                 type="password"
                 name="confirmPassword"
                 label="Confirm Password"
+                placeholder="confirm your password"
                 value={formikValues.values.confirmPassword}
                 error={formikValues.errors.confirmPassword}
                 onChange={formikValues.handleChange}

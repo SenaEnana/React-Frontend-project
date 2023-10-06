@@ -2,8 +2,7 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 import { Formik } from "formik";
-import React from "react";
-import TextInput from "../../components/TextInput";
+import TextInput from "../../../components/TextInput";
 import { createTeacherValidation } from "./schema";
 
 function UpdateTeacher() {
@@ -40,6 +39,8 @@ function UpdateTeacher() {
         <Formik
           initialValues={{
             name: data.name,
+            phoneNo: data.phoneNo,
+            address: data.address,
             expert: data.expert,
             gender: data.gender,
             educationLevel: data.educationLevel,
@@ -59,6 +60,22 @@ function UpdateTeacher() {
                 label="Name"
                 value={formikValues.values.name}
                 error={formikValues.errors.name}
+                onChange={formikValues.handleChange}
+              />
+              <TextInput
+                type="number"
+                name="phoneNo"
+                label="Phone Number"
+                value={formikValues.values.phoneNo}
+                error={formikValues.errors.phoneNo}
+                onChange={formikValues.handleChange}
+              />
+              <TextInput
+                type="text"
+                name="address"
+                label="Address"
+                value={formikValues.values.address}
+                error={formikValues.errors.address}
                 onChange={formikValues.handleChange}
               />
               <TextInput
