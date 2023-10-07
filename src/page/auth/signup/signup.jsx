@@ -10,22 +10,20 @@ function SignUp({ setLoggedIn }) {
     { values: "student", label: "Student" },
     { values: "teacher", label: "Teacher" },
   ]);
-  // async function userRegistration(values) {
-  function userRegistration(values) {
+  async function userRegistration(values) {
     const formData = new FormData();
     formData.append("name", values.name);
     formData.append("email", values.email);
-    formData.append("file", values.file);
+    formData.append("file_path", values.file);
     formData.append("role", values.role);
     formData.append("password", values.password);
     formData.append("confirmPassword", values.confirmPassword);
+    let result = await fetch("http://127.0.0.1:8000/api/registration", {
+      method: "POST",
+      headers: { "Content-Type": "multipart/form-data" },
+      body: formData,
+    });
     console.log(values);
-    // let result = await fetch("http://127.0.0.1:8000/api/registration", {
-    //   method: "POST",
-    //   // headers: { "Content-Type": "multipart/form-data" },
-    //   body: formData,
-    // });
-    console.log("ok");
     //localStorage.setItem("user-info", JSON.stringify(result));
     // window.location.href = "";
   }
@@ -74,29 +72,29 @@ function SignUp({ setLoggedIn }) {
                 name="role"
                 options={roles}
                 value={formikValues.values.role}
-                error={formikValues.errors.role}
-                onChange={formikValues.handleChange}
+                onChange={(selectedOption) => {
+                  formikValues.setFieldValue("role", selectedOption);
+                }}
               />
-              {/* <TextInput
-                type="file"
-                name="file_path"
-                label="Image"
-                placeholder="select file for your image"
-                value={formikValues.values.files[0]}
-                error={formikValues.errors.file_path}
-                onChange={formikValues.handleChange}
-              /> */}
-              <input
-                id="file"
-                name="file"
-                type="file"
-                onChange={(event) =>
-                  formikValues.setFieldValue(
-                    "file",
-                    event.currentTarget.files[0]
-                  )
-                }
-              />
+              <div className="col-12 row">
+                <div>
+                  <label className="float-start">Image</label>
+                </div>
+                <div className="form-group">
+                  <input
+                    className="form-control"
+                    id="file"
+                    name="file"
+                    type="file"
+                    onChange={(event) =>
+                      formikValues.setFieldValue(
+                        "file",
+                        event.currentTarget.files[0]
+                      )
+                    }
+                  />
+                </div>
+              </div>
               <TextInput
                 type="password"
                 name="password"
@@ -118,7 +116,7 @@ function SignUp({ setLoggedIn }) {
 
               <div className="m-3">
                 <input
-                  className="btn btn-primary col-12"
+                  className="btn btn-success col-12"
                   type="button"
                   value="submit"
                   onClick={formikValues.handleSubmit}

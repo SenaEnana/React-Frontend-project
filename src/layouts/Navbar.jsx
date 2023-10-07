@@ -26,11 +26,11 @@ function NavBar() {
               className="p-1 fs-4 fw-light profile"
               title={user.name}
             >
-              <Link to={"/profile"} className="dropdown-item ps-1 m-1">
+              <Link to={"/profile"} className="dropdown-item p-0 m-1">
                 Profile
               </Link>
               <button
-                className="btn btn-md btn-outline-primary ms-1 mt-1"
+                className="btn btn-sm btn-outline-primary ms-1 mt-1"
                 onClick={logOut}
               >
                 sign out

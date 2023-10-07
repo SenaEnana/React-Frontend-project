@@ -3,9 +3,11 @@ import React from "react";
 const DropDown = ({ options, onChange, label, name }) => {
   return (
     <div className="col-12 row">
-      <label className="float-start" htmlFor="option">
-        {label}
-      </label>
+      <div>
+        <label className="float-start" htmlFor="option">
+          {label}
+        </label>
+      </div>
       <div>
         <select
           className="form-control mb-3"

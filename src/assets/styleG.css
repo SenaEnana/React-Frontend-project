@@ -49,11 +49,26 @@ nav{
 }
 .profile{
 position:absolute;
-right:10px;
+right:40px;
 top:5px;
 }
 .user-icon{
    position:absolute;
-   right:9px;
+   right:40px;
    top:15px; 
+}
+.card{
+   padding:1.5rem;
+   width:250px;
+   box-shadow: 0 0 28px 4px rgba(0,0,0,0.1);
+   transition:transform .3s ease;
+   cursor:pointer;
+}
+.card:hover{
+   transform:scale(1.1);
+}
+
+.card_container{
+ display: flex;
+ flex-wrap: wrap;  
 }

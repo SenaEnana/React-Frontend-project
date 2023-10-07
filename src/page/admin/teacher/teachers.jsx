@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import { useState, useEffect } from "react";
 
-const Teacher = () => {
+const Teachers = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -80,4 +80,4 @@ const Teacher = () => {
     </>
   );
 };
-export default Teacher;
+export default Teachers;

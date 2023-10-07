@@ -1,8 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-
+import { NavLink } from "react-router-dom";
 import { Formik } from "formik";
-import { createStudentValidation } from "./schema";
 import TextInput from "../../../components/TextInput";
 
 function UpdateStudent() {
@@ -35,6 +34,14 @@ function UpdateStudent() {
   }, [id]);
   return (
     <div className="row justify-content-center ">
+      <div>
+        <NavLink
+          to="/students"
+          className="float-end btn btn-danger btn-sm mt-3"
+        >
+          Back
+        </NavLink>
+      </div>
       {data.name && !loading && (
         <Formik
           initialValues={{
@@ -49,7 +56,6 @@ function UpdateStudent() {
           onSubmit={(values) => {
             updateStudent(values);
           }}
-          validationSchema={createStudentValidation}
         >
           {(formikValues) => (
             <form className="form-group rounded border col-4 pe-3 mt-5 bg-light">

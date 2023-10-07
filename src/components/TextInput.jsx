@@ -8,7 +8,7 @@ const TextInput = ({
   placeholder,
 }) => {
   return (
-    <div className=" col-12 row">
+    <div className="col-12 row">
       <div>
         <label className="float-start">{label}</label>
       </div>

@@ -21,8 +21,8 @@ const CreateStudent = () => {
       },
     });
     result = await result.json();
-    localStorage.setItem("user-add-info", JSON.stringify(result));
-    alert("successfully registered");
+    localStorage.setItem("user-add-stud", JSON.stringify(result));
+    alert("successfully created");
   }
   return (
     <div className="row justify-content-center ">
@@ -47,7 +47,7 @@ const CreateStudent = () => {
         onSubmit={(values) => {
           studentRegistration(values);
         }}
-        validationSchema={createStudentValidation}
+        // validationSchema={createStudentValidation}
       >
         {(formikValues) => (
           <form className="form-group rounded border col-4 pe-3 mt-3 bg-light">
@@ -80,10 +80,14 @@ const CreateStudent = () => {
               onChange={formikValues.handleChange}
             />
             <DropDown
-              onChange={formikValues.handleChange}
               label="Gender"
               name="gender"
               options={gender}
+              value={formikValues.values.gender}
+              error={formikValues.errors.gender}
+              onChange={(selectedOption) => {
+                formikValues.setFieldValue("gender", selectedOption);
+              }}
             />
             <TextInput
               type="number"
@@ -115,7 +119,7 @@ const CreateStudent = () => {
 
             <div className="m-3">
               <input
-                className="btn btn-primary col-12"
+                className="btn btn-success col-12"
                 type="button"
                 value="submit"
                 onClick={formikValues.handleSubmit}
