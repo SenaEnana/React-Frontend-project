@@ -8,7 +8,7 @@ function Sidebar() {
     <>
       <div className="vh-100 bg-light border">
         <ul className="list-group border-0 pt-3 bg-secondary">
-          <NavLink to={"/home"} className="list-group-item text-start">
+          <NavLink to={"/"} className="list-group-item text-start">
             <BsFillHouseDashFill className="me-2" size={30} />
             Dashboard
           </NavLink>
@@ -16,10 +16,7 @@ function Sidebar() {
             <GiTeacher className="me-2" size={30} />
             Teachers
           </NavLink>
-          <NavLink
-            to={"/createTeacher"}
-            className="list-group-item text-start"
-          >
+          <NavLink to={"/createTeacher"} className="list-group-item text-start">
             <MdCreateNewFolder className="me-2" size={30} />
             Create Teachers
           </NavLink>
@@ -27,10 +24,7 @@ function Sidebar() {
             <PiStudentFill className="me-2" size={30} />
             Students
           </NavLink>
-          <NavLink
-            to={"/createStudent"}
-            className="list-group-item text-start"
-          >
+          <NavLink to={"/createStudent"} className="list-group-item text-start">
             <MdCreateNewFolder className="me-2" size={30} />
             Create Students
           </NavLink>

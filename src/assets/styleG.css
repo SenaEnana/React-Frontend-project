@@ -3,15 +3,7 @@
     box-sizing: border-box;
     text-decoration: none;
     list-style: none;
-    margin: 0;
-    padding: 0;
-}
-body{
- text-align: center;
- justify-content:center;
- align-items: center;
- font-family: 'Lato', sans-serif;
- background-color: #eef7fa;
+    font-family: 'Lato', sans-serif;
 }
 nav{
    display: block;
@@ -19,7 +11,7 @@ nav{
    background-color: #f1ecec;
 }
 .navLink:hover{
- background-color: #504949;
+ background-color: #f3eaea;
  border-radius:25px;
  transition: .5s;
 }

@@ -10,22 +10,33 @@ function SignUp({ setLoggedIn }) {
     { values: "student", label: "Student" },
     { values: "teacher", label: "Teacher" },
   ]);
+
   async function userRegistration(values) {
     const formData = new FormData();
     formData.append("name", values.name);
     formData.append("email", values.email);
-    formData.append("file_path", values.file);
+    formData.append("file_path", values.file); // Make sure values.file is a valid File object
     formData.append("role", values.role);
     formData.append("password", values.password);
     formData.append("confirmPassword", values.confirmPassword);
-    let result = await fetch("http://127.0.0.1:8000/api/registration", {
-      method: "POST",
-      headers: { "Content-Type": "multipart/form-data" },
-      body: formData,
-    });
-    console.log(values);
-    //localStorage.setItem("user-info", JSON.stringify(result));
-    // window.location.href = "";
+    try {
+      let result = await fetch("http://127.0.0.1:8000/api/registration", {
+        method: "POST",
+        body: formData,
+        headers: {
+          // The Content-Type header is set correctly for FormData
+        },
+      });
+      if (result.ok) {
+        // Handle any further actions, like redirection or displaying a success message
+        console.log("Registration successful");
+        window.location.href = "/";
+      } else {
+        console.error("Registration failed");
+      }
+    } catch (error) {
+      console.error("Error during registration:", error);
+    }
   }
   return (
     <>
@@ -72,6 +83,7 @@ function SignUp({ setLoggedIn }) {
                 name="role"
                 options={roles}
                 value={formikValues.values.role}
+                error={formikValues.errors.role}
                 onChange={(selectedOption) => {
                   formikValues.setFieldValue("role", selectedOption);
                 }}

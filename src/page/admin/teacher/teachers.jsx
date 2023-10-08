@@ -35,19 +35,17 @@ const Teachers = () => {
       </div>
       <div className="rounded-2 border">
         <table className="table table-hover">
-          <thead>
-            <tr>
-              <th>Id</th>
-              <th>Name</th>
-              <th>Phone Number</th>
-              <th>Address</th>
-              <th>Gender</th>
-              <th>Education</th>
-              <th>Expert</th>
-              <th>Date</th>
-              <td></td>
-            </tr>
-          </thead>
+          <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Phone Number</th>
+            <th>Address</th>
+            <th>Gender</th>
+            <th>Education</th>
+            <th>Expert</th>
+            <th>Date</th>
+            <td></td>
+          </tr>
           <tbody>
             {data.map((teacher) => (
               <tr key={teacher.id}>

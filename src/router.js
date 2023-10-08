@@ -1,6 +1,5 @@
 import { Route, Routes } from "react-router-dom";
 import { useState, useEffect } from "react";
-import Home from "./pages/Home";
 import Profile from "./page/profile/profile";
 import SignUp from "./page/auth/signup/signup";
 import SignIn from "./page/auth/signin/signin";
@@ -12,6 +11,7 @@ import UpdateTeacher from "./page/admin/teacher/updateTeacher";
 import UpdateStudent from "./page/admin/student/updateStudent";
 import Student from "./page/student/student";
 import Teacher from "./page/teacher/teacher";
+import Home from "./page/frontpage/home";
 
 function Router() {
   const [teacher, setTeacher] = useState([]);
@@ -38,7 +38,6 @@ function Router() {
   }
   return (
     <Routes>
-      <Route path="/home" element={<Home />} />
       <Route path="/profile" element={<Profile/>} />
       <Route path="/signUp" element={<SignUp />} />
       <Route path="/singIn" element={<SignIn />} />

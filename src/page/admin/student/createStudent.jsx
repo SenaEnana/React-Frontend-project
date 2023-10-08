@@ -21,7 +21,6 @@ const CreateStudent = () => {
       },
     });
     result = await result.json();
-    localStorage.setItem("user-add-stud", JSON.stringify(result));
     alert("successfully created");
   }
   return (
@@ -45,9 +44,10 @@ const CreateStudent = () => {
           grade: "",
         }}
         onSubmit={(values) => {
+          console.log(values);
           studentRegistration(values);
         }}
-        // validationSchema={createStudentValidation}
+        validationSchema={createStudentValidation}
       >
         {(formikValues) => (
           <form className="form-group rounded border col-4 pe-3 mt-3 bg-light">

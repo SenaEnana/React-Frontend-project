@@ -7,6 +7,7 @@ export const signUpValidation = Yup.object().shape({
   email: Yup.string()
     .email("Invalid email! provide valid email?")
     .required("required"),
+    role: Yup.string().required("required"),
   password: Yup.string().required("required"),
   confirmPassword: Yup.string().when("password", (password, field) =>
     password ? field.required().oneOf([Yup.ref("password")]) : field

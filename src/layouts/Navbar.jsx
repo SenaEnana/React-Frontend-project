@@ -22,10 +22,7 @@ function NavBar() {
         {localStorage.getItem("user-login") ? (
           <Nav>
             <BiSolidUser className="fs-1 user-icon" />
-            <NavDropdown
-              className="p-1 fs-4 fw-light profile"
-              title={user.name}
-            >
+            <NavDropdown className="p-1 fs-4 fw-light profile" title={user}>
               <Link to={"/profile"} className="dropdown-item p-0 m-1">
                 Profile
               </Link>

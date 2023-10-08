@@ -21,7 +21,6 @@ const CreateTeacher = () => {
       },
     });
     result = await result.json();
-    localStorage.setItem("user-add-tech", JSON.stringify(result));
     alert("successfully created");
   }
   return (
@@ -47,7 +46,7 @@ const CreateTeacher = () => {
         onSubmit={(values) => {
           teacherRegistration(values);
         }}
-        // validationSchema={createTeacherValidation}
+        validationSchema={createTeacherValidation}
       >
         {(formikValues) => (
           <form className="form-group rounded border col-4 pe-3 mt-3 bg-light">
