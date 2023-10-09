@@ -23,7 +23,7 @@ function Profile() {
         </tr>
 
         {userData.map((user) => (
-          <tr>
+          <tr key={user.id}>
             <td>{user.name}</td>
             <td>{user.email}</td>
             <td>{user.role}</td>

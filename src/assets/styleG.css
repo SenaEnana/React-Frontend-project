@@ -41,13 +41,13 @@ nav {
 }
 .profile {
   position: absolute;
-  right: 40px;
-  top: 5px;
+  right: 25px;
+  top: 0;
 }
 .user-icon {
   position: absolute;
-  right: 40px;
-  top: 15px;
+  right: 25px;
+  top: 9px;
 }
 .card {
   padding: 1.5rem;

@@ -19,7 +19,10 @@ function NavBar() {
               </Link>
             </div>
             <BiSolidUser className="fs-1 user-icon" />
-            <NavDropdown className="p-1 fs-4 fw-light profile" title={name}>
+            <NavDropdown
+              className="pe-1 fs-4 text-dark profile"
+              title={"Welcome " + name}
+            >
               {/* <Link to={"/profile"} className="dropdown-item p-0 m-1">
                 Profile
               </Link> */}
