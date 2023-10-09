@@ -11,7 +11,7 @@ import UpdateTeacher from "./page/admin/teacher/updateTeacher";
 import UpdateStudent from "./page/admin/student/updateStudent";
 import Student from "./page/student/student";
 import Teacher from "./page/teacher/teacher";
-import Home from "./page/frontpage/home";
+import Dashboard from "./page/dashboard/dashboard";
 
 function Router() {
   const [teacher, setTeacher] = useState([]);
@@ -47,9 +47,10 @@ function Router() {
       <Route path="/createTeacher" element={<CreateTeacher />} />    
       <Route path="/updateTeacher/:id" element={<UpdateTeacher />}/> 
       <Route path="/updateStudent/:id" element={<UpdateStudent />}/>
+      <Route path="/" element={<Dashboard/>}/>
       <Route path="/student" element={
         <div>
-<h3 className="mt-2 p-0">Teachers List</h3>
+<h3 className="mt-2 p-0 text-center">Teachers List</h3>
       <div className="card_container m-3">
               {teacher.map((teacherData,index) => (
      <Student result={teacherData} key={index}/>
@@ -58,7 +59,7 @@ function Router() {
               </div>}/>
               <Route path="/teacher" element={
         <div>
-<h3 className="mt-2 p-0">Students List</h3>
+<h3 className="mt-2 p-0 text-centre">Students List</h3>
       <div className="card_container m-3">
               {student.map((studentData,index) => (
      <Teacher result2={studentData} key={index}/>

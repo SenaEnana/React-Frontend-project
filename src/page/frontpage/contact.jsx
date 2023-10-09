@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
 import Image from "../../components/Image";
-import FrontPageHeader from "../../components/frontpageheader";
+import NavBar from "../../layouts/Navbar";
 
 const Contact = () => {
   return (
     <div>
-      <FrontPageHeader />
+      <NavBar />
       <div className="float-end mt-5">
         <h4 className="fw-light text-dark p-1">
           Phone No:

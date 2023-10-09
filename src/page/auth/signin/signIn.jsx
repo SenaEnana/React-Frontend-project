@@ -1,10 +1,12 @@
 import { Formik } from "formik";
 import TextInput from "../../../components/TextInput";
 import { signInValidation } from "./schema";
+import { useNavigate } from "react-router-dom";
 
 function SignIn({ setLoggedIn, setAuth }) {
+  const navigate = useNavigate();
   async function login(values) {
-    let result = await fetch("http://127.0.0.1:8000/api/login", {
+    let result = await fetch("http://127.0.0.1:8000/api/userLogin", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -14,9 +16,39 @@ function SignIn({ setLoggedIn, setAuth }) {
     });
     result = await result.json();
     localStorage.setItem("user-login", "true");
-    window.location.href = "";
-    setAuth(true);
+    window.location.href = "/";
+    // setAuth(true);
   }
+
+  // useEffect(() => {
+  //   const adminRole = async (values) => {
+  //     let result = await fetch("http://127.0.0.1:8000/api/userRole", {
+  //       method: "POST",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //         Accept: "application/json",
+  //       },
+  //       body: JSON.stringify(values),
+  //     });
+  //     result = await result.json();
+  //     localStorage.setItem("user-role", "admin");
+  //   };
+  //   adminRole();
+  // }, []);
+
+  async function adminRole(values) {
+    let result2 = await fetch("http://127.0.0.1:8000/api/userRole", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify(values),
+    });
+    result2 = await result2.json();
+    localStorage.setItem("user-role", "admin");
+  }
+
   return (
     <>
       <div className="row justify-content-center">
@@ -27,6 +59,7 @@ function SignIn({ setLoggedIn, setAuth }) {
           }}
           onSubmit={(values) => {
             login(values);
+            adminRole(values);
           }}
           validationSchema={signInValidation}
         >
@@ -62,7 +95,11 @@ function SignIn({ setLoggedIn, setAuth }) {
                   onClick={formikValues.handleSubmit}
                 />
               </div>
-              <p className="text-start user" onClick={() => setLoggedIn(false)}>
+              {/* <p className="text-start user" onClick={() => setLoggedIn(true)}> */}
+              <p
+                className="text-start user"
+                onClick={() => navigate("/signUp")}
+              >
                 did't have an account?
               </p>
             </form>

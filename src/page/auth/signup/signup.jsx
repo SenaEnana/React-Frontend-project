@@ -3,8 +3,10 @@ import TextInput from "../../../components/TextInput";
 import { signUpValidation } from "./schema";
 import DropDown from "../../../components/DropDown";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function SignUp({ setLoggedIn }) {
+  const navigate = useNavigate();
   const [roles, setRoles] = useState([
     { values: "admin", label: "Admin" },
     { values: "student", label: "Student" },
@@ -15,7 +17,7 @@ function SignUp({ setLoggedIn }) {
     const formData = new FormData();
     formData.append("name", values.name);
     formData.append("email", values.email);
-    formData.append("file_path", values.file); // Make sure values.file is a valid File object
+    formData.append("file_path", values.file);
     formData.append("role", values.role);
     formData.append("password", values.password);
     formData.append("confirmPassword", values.confirmPassword);
@@ -28,9 +30,8 @@ function SignUp({ setLoggedIn }) {
         },
       });
       if (result.ok) {
-        // Handle any further actions, like redirection or displaying a success message
         console.log("Registration successful");
-        window.location.href = "/";
+        window.location.href = "";
       } else {
         console.error("Registration failed");
       }
@@ -53,7 +54,7 @@ function SignUp({ setLoggedIn }) {
           onSubmit={(values) => {
             userRegistration(values);
           }}
-          // validationSchema={signUpValidation}
+          validationSchema={signUpValidation}
         >
           {(formikValues) => (
             <form className="form-group rounded border col-4 pe-3 mt-5 bg-light">
@@ -134,7 +135,11 @@ function SignUp({ setLoggedIn }) {
                   onClick={formikValues.handleSubmit}
                 />
               </div>
-              <p className="text-start user" onClick={() => setLoggedIn(true)}>
+              {/* <p className="text-start user" onClick={() => setLoggedIn(true)}> */}
+              <p
+                className="text-start user"
+                onClick={() => navigate("/signIn")}
+              >
                 Already have an account?
               </p>
             </form>
