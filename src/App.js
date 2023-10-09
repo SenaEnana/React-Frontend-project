@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Sidebar from "./layouts/Sidebar";
 import Router from "./router";
-import Auth from "./page/auth/auth";
+// import Auth from "./page/auth/auth";
 import NavBar from "./layouts/Navbar";
 import FrontPageRouter from "./frontpagerouter";
 import StudentSidebar from "./layouts/studentsidebar";

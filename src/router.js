@@ -59,7 +59,7 @@ function Router() {
               </div>}/>
               <Route path="/teacher" element={
         <div>
-<h3 className="mt-2 p-0 text-centre">Students List</h3>
+<h3 className="mt-2 p-0 text-center">Students List</h3>
       <div className="card_container m-3">
               {student.map((studentData,index) => (
      <Teacher result2={studentData} key={index}/>
