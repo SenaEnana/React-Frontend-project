@@ -16,39 +16,12 @@ function SignIn({ setLoggedIn, setAuth }) {
     });
     result = await result.json();
     localStorage.setItem("user-login", "true");
+    localStorage.setItem("name", JSON.stringify(result.name));
+    localStorage.setItem("role", JSON.stringify(result.role));
+    localStorage.setItem("email", JSON.stringify(result.email));
     window.location.href = "/";
     // setAuth(true);
   }
-
-  // useEffect(() => {
-  //   const adminRole = async (values) => {
-  //     let result = await fetch("http://127.0.0.1:8000/api/userRole", {
-  //       method: "POST",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //         Accept: "application/json",
-  //       },
-  //       body: JSON.stringify(values),
-  //     });
-  //     result = await result.json();
-  //     localStorage.setItem("user-role", "admin");
-  //   };
-  //   adminRole();
-  // }, []);
-
-  async function adminRole(values) {
-    let result2 = await fetch("http://127.0.0.1:8000/api/userRole", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-      body: JSON.stringify(values),
-    });
-    result2 = await result2.json();
-    localStorage.setItem("user-role", "admin");
-  }
-
   return (
     <>
       <div className="row justify-content-center">
@@ -59,7 +32,6 @@ function SignIn({ setLoggedIn, setAuth }) {
           }}
           onSubmit={(values) => {
             login(values);
-            adminRole(values);
           }}
           validationSchema={signInValidation}
         >

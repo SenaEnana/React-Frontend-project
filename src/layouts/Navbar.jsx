@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Nav, Navbar, NavDropdown, NavLink } from "react-bootstrap";
 
 function NavBar() {
-  let user = JSON.parse(localStorage.getItem("user-info"));
+  const name = JSON.parse(localStorage.getItem("name"));
   function logOut() {
     localStorage.clear();
     window.location.href = "/";
@@ -19,7 +19,7 @@ function NavBar() {
               </Link>
             </div>
             <BiSolidUser className="fs-1 user-icon" />
-            <NavDropdown className="p-1 fs-4 fw-light profile" title={user}>
+            <NavDropdown className="p-1 fs-4 fw-light profile" title={name}>
               {/* <Link to={"/profile"} className="dropdown-item p-0 m-1">
                 Profile
               </Link> */}

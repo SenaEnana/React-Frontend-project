@@ -1,13 +1,13 @@
 import { useState } from "react";
 import Sidebar from "./layouts/Sidebar";
 import Router from "./router";
-// import Auth from "./page/auth/auth";
 import NavBar from "./layouts/Navbar";
 import FrontPageRouter from "./frontpagerouter";
-import StudentSidebar from "./layouts/studentsidebar";
+import UserSidebar from "./layouts/usersidebar";
 
 function App() {
   const [isAuth, setAuth] = useState(localStorage.getItem("user-login"));
+  const role = JSON.parse(localStorage.getItem("role"));
   return (
     <div>
         
@@ -15,22 +15,23 @@ function App() {
         <div className="col-12 overflow-none bg-white">
         <NavBar/>
           <div className="row col-12">
-            {localStorage.getItem("user-role") ? (
-             <div className="col-2">
+           {role === "Admin" ? (
+            <div className="col-2">
               <Sidebar />
             </div>
-            ) : (
+            ) :(
             <div className="col-2">
-            <StudentSidebar/>
-            </div>)}
+            <UserSidebar/>
+            </div> 
+           ) }
             <div className="col-10 ">
-              <Router />
+            <Router />
+
             </div> 
           </div>
         </div>
       ) : (
            <div className="col-12 ">
-            {/* <Auth setAuth={setAuth}/ > */}
               <FrontPageRouter/>
             </div>  
       )} 
