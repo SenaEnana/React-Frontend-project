@@ -8,6 +8,7 @@ export const createTeacherValidation = Yup.object().shape({
   address: Yup.string().required("required"),
   expert: Yup.string().required("required"),
   educationLevel: Yup.string().required("required"),
-  date: Yup.string().required("required"),
   gender: Yup.string().required("required"),
+ day: Yup.string().required("required"),
+  time: Yup.mixed().required("required"),
 });

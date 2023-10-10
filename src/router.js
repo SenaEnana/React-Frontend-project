@@ -3,15 +3,18 @@ import { useState, useEffect } from "react";
 import Profile from "./page/profile/profile";
 import SignUp from "./page/auth/signup/signup";
 import SignIn from "./page/auth/signin/signin";
+import Teacher from "./page/teacher/teacher";
+import Student from "./page/student/student";
+import Dashboard from "./page/dashboard/dashboard";
 import Teachers from "./page/admin/teacher/teachers";
 import Students from "./page/admin/student/students";
+import UpdateProfile from "./page/profile/updateProfile";
 import CreateTeacher from "./page/admin/teacher/createTeacher";
 import CreateStudent from "./page/admin/student/createStudent";
 import UpdateTeacher from "./page/admin/teacher/updateTeacher";
 import UpdateStudent from "./page/admin/student/updateStudent";
-import Student from "./page/student/student";
-import Teacher from "./page/teacher/teacher";
-import Dashboard from "./page/dashboard/dashboard";
+import StudentDashboard from "./page/dashboard/studentDashboard";
+import TeacherDashboard from "./page/dashboard/teacherDashboard";
 
 function Router() {
   const [teacher, setTeacher] = useState([]);
@@ -38,7 +41,9 @@ function Router() {
   }
   return (
     <Routes>
+     <Route path="/" element={<Dashboard/>}/>
       <Route path="/profile" element={<Profile/>} />
+      <Route path="/updateProfile" element={<UpdateProfile/>}/>
       <Route path="/signUp" element={<SignUp />} />
       <Route path="/singIn" element={<SignIn />} />
       <Route path="/teachers" element={<Teachers />} />
@@ -47,22 +52,23 @@ function Router() {
       <Route path="/createTeacher" element={<CreateTeacher />} />    
       <Route path="/updateTeacher/:id" element={<UpdateTeacher />}/> 
       <Route path="/updateStudent/:id" element={<UpdateStudent />}/>
-      <Route path="/" element={<Dashboard/>}/>
-      <Route path="/student" element={
+      <Route path="/studentDashboard" element={<StudentDashboard/>}/>
+      <Route path="/teacherDashboard" element={<TeacherDashboard/>}/>
+      <Route path="/teacher" element={
         <div>
 <h3 className="mt-2 p-0 text-center">Teachers List</h3>
       <div className="card_container m-3">
               {teacher.map((teacherData,index) => (
-     <Student result={teacherData} key={index}/>
+     <Teacher result={teacherData} key={index}/>
               ))}
               </div>
               </div>}/>
-              <Route path="/teacher" element={
+              <Route path="/student" element={
         <div>
 <h3 className="mt-2 p-0 text-center">Students List</h3>
       <div className="card_container m-3">
               {student.map((studentData,index) => (
-     <Teacher result2={studentData} key={index}/>
+     <Student result2={studentData} key={index}/>
               ))}
               </div>
               </div>}/>

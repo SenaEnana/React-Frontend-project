@@ -51,7 +51,8 @@ function UpdateTeacher() {
             expert: data.expert,
             gender: data.gender,
             educationLevel: data.educationLevel,
-            date: data.date,
+            day: data.day,
+            time: data.time,
           }}
           onSubmit={(values) => {
             updateTeacher(values);
@@ -110,11 +111,19 @@ function UpdateTeacher() {
                 onChange={formikValues.handleChange}
               />
               <TextInput
-                type="datetime-local"
-                name="date"
-                label="Date"
-                value={formikValues.values.date}
-                error={formikValues.errors.date}
+                type="text"
+                name="day"
+                label="Day"
+                value={formikValues.values.day}
+                error={formikValues.errors.day}
+                onChange={formikValues.handleChange}
+              />
+              <TextInput
+                type="time"
+                name="time"
+                label="Time"
+                value={formikValues.values.time}
+                error={formikValues.errors.time}
                 onChange={formikValues.handleChange}
               />
 

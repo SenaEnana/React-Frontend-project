@@ -1,20 +1,36 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Profile() {
   const [userData, setUserData] = useState([]);
-
+  const navigate = useNavigate();
   useEffect(() => {
     getUser();
   }, []);
 
-  async function getUser() {
-    let result = await fetch("http://127.0.0.1:8000/api/list");
+  // async function getUser() {
+  //   let result = await fetch("http://127.0.0.1:8000/api/list");
+  //   result = await result.json();
+  //   setUserData(result);
+  // }
+
+  async function getUser(id) {
+    let result = await fetch("http://127.0.0.1:8000/api/getUser/" + id);
     result = await result.json();
     setUserData(result);
   }
+
   return (
     <div className="float-end">
-      <table className="table table-hover">
+      {userData.map((user) => (
+        <img
+          key={user.id}
+          style={{ width: 100, borderRadius: 100 }}
+          src={"http://127.0.0.1:8000/storage/users_image/" + user.file_path}
+          alt=""
+        />
+      ))}
+      {/* <table className="table table-hover">
         <tr>
           <th>Name</th>
           <th>Email</th>
@@ -29,16 +45,27 @@ function Profile() {
             <td>{user.role}</td>
             <td>
               <img
-                style={{ width: 100 }}
+                style={{ width: 100, borderRadius: 100 }}
                 src={
-                  "http://localhost:8000/storage/app/public/users_image/" +
-                  user.file_path
+                  "http://127.0.0.1:8000/storage/users_image/" + user.file_path
                 }
+                alt=""
               />
+              {/* http://127.0.0.1:8000/api/getUser/id 
+            </td>
+            <td>
+              <button
+                className="btn btn-sm btn-outline-info"
+                onClick={() => {
+                  navigate("/updateProfile");
+                }}
+              >
+                update profile
+              </button>
             </td>
           </tr>
         ))}
-      </table>
+      </table> */}
     </div>
   );
 }

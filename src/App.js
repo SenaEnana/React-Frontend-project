@@ -3,7 +3,8 @@ import Sidebar from "./layouts/Sidebar";
 import Router from "./router";
 import NavBar from "./layouts/Navbar";
 import FrontPageRouter from "./frontpagerouter";
-import UserSidebar from "./layouts/usersidebar";
+import StudentSidebar from "./layouts/studentSidebar";
+import TeacherSidebar from "./layouts/teacherSidebar";
 
 function App() {
   const [isAuth, setAuth] = useState(localStorage.getItem("user-login"));
@@ -15,18 +16,23 @@ function App() {
         <div className="col-12 overflow-none bg-white">
         <NavBar/>
           <div className="row col-12">
-           {role === "Admin" ? (
+            {role === "Admin" ?
+                <div className="col-2">
+                <Sidebar />
+                </div>
+              : <>
+            {role === "Student"? 
             <div className="col-2">
-              <Sidebar />
+              <StudentSidebar/>
+            </div>:
+            <div className="col-2">
+              <TeacherSidebar/>
             </div>
-            ) :(
-            <div className="col-2">
-            <UserSidebar/>
-            </div> 
-           ) }
+            }
+         </>
+         }
             <div className="col-10 ">
             <Router />
-
             </div> 
           </div>
         </div>

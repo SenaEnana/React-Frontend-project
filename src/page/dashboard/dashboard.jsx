@@ -5,7 +5,8 @@ const Dashboard = () => {
   return (
     <div>
       <h4 className="text-center mt-3">
-        Click the button to see Students and Teachers
+        There are many information about the teachers and students in the
+        database the information is listed according to the following
       </h4>
       <div className="d-flex float-center">
         <div className="card mt-5 me-5 ms-5">
@@ -17,15 +18,7 @@ const Dashboard = () => {
             <div className="ms-1 fw-lighter">Expert</div>
             <div className="ms-1 fw-lighter">Level of education</div>
             <div className="ms-1 fw-lighter">Date of teaching</div>
-            <button
-              className="btn btn-sm btn-outline-info mt-3 ms-5"
-              onClick={() => {
-                navigate("/student");
-              }}
-            >
-              teachers
-            </button>
-            <div className="fw-bold fs-5 ms-0">
+            <div className="fw-lighter fs-5 ms-0">
               There are around 10 student sizes in the database the database is
               capable of more than million students
             </div>
@@ -40,15 +33,7 @@ const Dashboard = () => {
             <div className="ms-1 fw-lighter">Phone no</div>
             <div className="ms-1 fw-lighter">Subject to study</div>
             <div className="ms-1 fw-lighter">Date of studying</div>
-            <button
-              className="btn btn-sm btn-outline-info mt-3 ms-5"
-              onClick={() => {
-                navigate("/teacher");
-              }}
-            >
-              student
-            </button>
-            <div className="fs-5 ms-0 fw-bold">
+            <div className="fs-5 ms-0 fw-lighter">
               There are around 20 teachers in number in the database according
               to the counting
             </div>

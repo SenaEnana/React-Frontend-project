@@ -1,17 +1,20 @@
-import { PiStudentBold } from "react-icons/pi";
+import { FaChalkboardTeacher } from "react-icons/fa";
 
-function Teacher({ result2 }) {
+function Teacher({ result }) {
   return (
     <div className="card mt-5 me-3">
-      <PiStudentBold className="ms-0 float-start" size={40} />
-      <div className="mb-2 fs-5 fw-bold">{result2.name}</div>
+      <FaChalkboardTeacher className="ms-0 float-start" size={40} />
+      <div className="mb-2 fs-5 fw-bold">Name:-{result.name}</div>
       <div className="card_body">
-        <div className="ms-1 fw-lighter">{result2.grade}</div>
-        <div className="ms-1 fw-lighter">{result2.address}</div>
-        <div className="ms-1 fw-lighter">{result2.gender}</div>
-        <div className="ms-1 fw-lighter">{result2.phoneNo}</div>
-        <div className="ms-1 fw-lighter">{result2.subject}</div>
-        <div className="ms-1 fw-lighter">{result2.date}</div>
+        <div className="ms-1 fw-lighter">Address:-{result.address}</div>
+        <div className="ms-1 fw-lighter">Gender:-{result.gender}</div>
+        <div className="ms-1 fw-lighter">Phone:-{result.phoneNo}</div>
+        <div className="ms-1 fw-lighter">Expert:-{result.expert}</div>
+        <div className="ms-1 fw-lighter">
+          Education Level:-{result.educationLevel}
+        </div>
+        <div className="ms-1 fw-lighter">Days:-{result.day}</div>
+        <div className="ms-1 fw-lighter">Time:-{result.time}</div>
       </div>
     </div>
   );

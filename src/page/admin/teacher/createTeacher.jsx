@@ -41,12 +41,13 @@ const CreateTeacher = () => {
           expert: "",
           gender: "",
           educationLevel: "",
-          date: "",
+          day: "",
+          time: "",
         }}
         onSubmit={(values) => {
           teacherRegistration(values);
         }}
-        validationSchema={createTeacherValidation}
+        // validationSchema={createTeacherValidation}
       >
         {(formikValues) => (
           <form className="form-group rounded border col-4 pe-3 mt-3 bg-light">
@@ -107,12 +108,21 @@ const CreateTeacher = () => {
               onChange={formikValues.handleChange}
             />
             <TextInput
-              type="datetime-local"
-              name="date"
-              label="Date"
-              placeholder="enter time and date"
-              value={formikValues.values.date}
-              error={formikValues.errors.date}
+              type="text"
+              name="day"
+              label="Day"
+              placeholder="enter the days you want to teach in a week"
+              value={formikValues.values.day}
+              error={formikValues.errors.day}
+              onChange={formikValues.handleChange}
+            />
+            <TextInput
+              type="time"
+              name="time"
+              label="Time"
+              placeholder="how much time do you teach per day"
+              value={formikValues.values.time}
+              error={formikValues.errors.time}
               onChange={formikValues.handleChange}
             />
             <div className="m-3">

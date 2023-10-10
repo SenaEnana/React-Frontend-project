@@ -42,7 +42,9 @@ function Students() {
             <th>Gender</th>
             <th>grade</th>
             <th>Subject</th>
-            <th>Date</th>
+            <th>Day</th>
+            <th>Time</th>
+            <th>Role</th>
             <td></td>
           </tr>
 

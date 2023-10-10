@@ -8,7 +8,6 @@ import { useNavigate } from "react-router-dom";
 function SignUp({ setLoggedIn }) {
   const navigate = useNavigate();
   const [roles, setRoles] = useState([
-    { values: "admin", label: "Admin" },
     { values: "student", label: "Student" },
     { values: "teacher", label: "Teacher" },
   ]);

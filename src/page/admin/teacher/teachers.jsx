@@ -43,7 +43,9 @@ const Teachers = () => {
             <th>Gender</th>
             <th>Education</th>
             <th>Expert</th>
-            <th>Date</th>
+            <th>Day</th>
+            <th>Time</th>
+            <th>Role</th>
             <td></td>
           </tr>
           <tbody>

@@ -1,5 +1,4 @@
-import React from "react";
-import { Formik } from "formik";
+import { Formik, Field } from "formik";
 import { createStudentValidation } from "./schema";
 import TextInput from "../../../components/TextInput";
 import { NavLink } from "react-router-dom";
@@ -11,6 +10,7 @@ const CreateStudent = () => {
     { values: "female", label: "Female" },
     { values: "male", label: "Male" },
   ]);
+
   async function studentRegistration(values) {
     let result = await fetch("http://127.0.0.1:8000/api/createStudent", {
       method: "POST",
@@ -40,8 +40,9 @@ const CreateStudent = () => {
           address: "",
           gender: "",
           subject: "",
-          date: "",
           grade: "",
+          day: "",
+          time: "",
         }}
         onSubmit={(values) => {
           console.log(values);
@@ -108,12 +109,21 @@ const CreateStudent = () => {
               onChange={formikValues.handleChange}
             />
             <TextInput
-              type="datetime-local"
-              name="date"
-              label="Date"
-              placeholder="enter date and time"
-              value={formikValues.values.date}
-              error={formikValues.errors.date}
+              type="text"
+              name="day"
+              label="Day"
+              placeholder="how many days you want to study in a week"
+              value={formikValues.values.day}
+              error={formikValues.errors.day}
+              onChange={formikValues.handleChange}
+            />
+            <TextInput
+              type="time"
+              name="time"
+              label="Time"
+              placeholder="enter time you want to study"
+              value={formikValues.values.time}
+              error={formikValues.errors.time}
               onChange={formikValues.handleChange}
             />
 
