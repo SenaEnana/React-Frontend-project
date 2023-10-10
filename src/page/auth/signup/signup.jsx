@@ -1,17 +1,10 @@
 import { Formik } from "formik";
 import TextInput from "../../../components/TextInput";
 import { signUpValidation } from "./schema";
-import DropDown from "../../../components/DropDown";
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-function SignUp({ setLoggedIn }) {
+function SignUp() {
   const navigate = useNavigate();
-  const [roles, setRoles] = useState([
-    { values: "student", label: "Student" },
-    { values: "teacher", label: "Teacher" },
-  ]);
-
   async function userRegistration(values) {
     const formData = new FormData();
     formData.append("name", values.name);
@@ -24,13 +17,11 @@ function SignUp({ setLoggedIn }) {
       let result = await fetch("http://127.0.0.1:8000/api/registration", {
         method: "POST",
         body: formData,
-        headers: {
-          // The Content-Type header is set correctly for FormData
-        },
+        headers: {},
       });
       if (result.ok) {
         console.log("Registration successful");
-        window.location.href = "";
+        window.location.href = "/signIn";
       } else {
         console.error("Registration failed");
       }
@@ -45,7 +36,6 @@ function SignUp({ setLoggedIn }) {
           initialValues={{
             name: "",
             email: "",
-            role: "",
             file: {},
             password: "",
             confirmPassword: "",
@@ -77,16 +67,6 @@ function SignUp({ setLoggedIn }) {
                 value={formikValues.values.email}
                 error={formikValues.errors.email}
                 onChange={formikValues.handleChange}
-              />
-              <DropDown
-                label="Role"
-                name="role"
-                options={roles}
-                value={formikValues.values.role}
-                error={formikValues.errors.role}
-                onChange={(selectedOption) => {
-                  formikValues.setFieldValue("role", selectedOption);
-                }}
               />
               <div className="col-12 row">
                 <div>
@@ -134,7 +114,6 @@ function SignUp({ setLoggedIn }) {
                   onClick={formikValues.handleSubmit}
                 />
               </div>
-              {/* <p className="text-start user" onClick={() => setLoggedIn(true)}> */}
               <p
                 className="text-start user"
                 onClick={() => navigate("/signIn")}

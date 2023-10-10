@@ -3,7 +3,7 @@ import TextInput from "../../../components/TextInput";
 import { signInValidation } from "./schema";
 import { useNavigate } from "react-router-dom";
 
-function SignIn({ setLoggedIn, setAuth }) {
+function SignIn() {
   const navigate = useNavigate();
   async function login(values) {
     let result = await fetch("http://127.0.0.1:8000/api/userLogin", {
@@ -20,7 +20,6 @@ function SignIn({ setLoggedIn, setAuth }) {
     localStorage.setItem("role", JSON.stringify(result.role));
     localStorage.setItem("email", JSON.stringify(result.email));
     window.location.href = "/";
-    // setAuth(true);
   }
   return (
     <>
@@ -67,7 +66,6 @@ function SignIn({ setLoggedIn, setAuth }) {
                   onClick={formikValues.handleSubmit}
                 />
               </div>
-              {/* <p className="text-start user" onClick={() => setLoggedIn(true)}> */}
               <p
                 className="text-start user"
                 onClick={() => navigate("/signUp")}

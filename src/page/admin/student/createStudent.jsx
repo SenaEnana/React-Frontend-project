@@ -48,7 +48,7 @@ const CreateStudent = () => {
           console.log(values);
           studentRegistration(values);
         }}
-        validationSchema={createStudentValidation}
+        // validationSchema={createStudentValidation}
       >
         {(formikValues) => (
           <form className="form-group rounded border col-4 pe-3 mt-3 bg-light">

@@ -4,7 +4,6 @@ import Router from "./router";
 import NavBar from "./layouts/Navbar";
 import FrontPageRouter from "./frontpagerouter";
 import StudentSidebar from "./layouts/studentSidebar";
-import TeacherSidebar from "./layouts/teacherSidebar";
 
 function App() {
   const [isAuth, setAuth] = useState(localStorage.getItem("user-login"));
@@ -21,13 +20,11 @@ function App() {
                 <Sidebar />
                 </div>
               : <>
-            {role === "Student"? 
+            {role === "student"? 
             <div className="col-2">
               <StudentSidebar/>
             </div>:
-            <div className="col-2">
-              <TeacherSidebar/>
-            </div>
+        null
             }
          </>
          }

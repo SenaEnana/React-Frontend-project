@@ -8,29 +8,15 @@ function Profile() {
     getUser();
   }, []);
 
-  // async function getUser() {
-  //   let result = await fetch("http://127.0.0.1:8000/api/list");
-  //   result = await result.json();
-  //   setUserData(result);
-  // }
-
-  async function getUser(id) {
-    let result = await fetch("http://127.0.0.1:8000/api/getUser/" + id);
+  async function getUser() {
+    let result = await fetch("http://127.0.0.1:8000/api/list");
     result = await result.json();
     setUserData(result);
   }
 
   return (
     <div className="float-end">
-      {userData.map((user) => (
-        <img
-          key={user.id}
-          style={{ width: 100, borderRadius: 100 }}
-          src={"http://127.0.0.1:8000/storage/users_image/" + user.file_path}
-          alt=""
-        />
-      ))}
-      {/* <table className="table table-hover">
+      <table className="table table-hover">
         <tr>
           <th>Name</th>
           <th>Email</th>
@@ -51,7 +37,6 @@ function Profile() {
                 }
                 alt=""
               />
-              {/* http://127.0.0.1:8000/api/getUser/id 
             </td>
             <td>
               <button
@@ -65,7 +50,7 @@ function Profile() {
             </td>
           </tr>
         ))}
-      </table> */}
+      </table>
     </div>
   );
 }
